@@ -1,0 +1,73 @@
+{
+ "allow_comments": 0,
+ "allow_delete": 0,
+ "allow_edit": 0,
+ "allow_incomplete": 0,
+ "allow_multiple": 1,
+ "allow_print": 0,
+ "anonymous": 0,
+ "apply_document_permissions": 1,
+ "button_label": "Submit Ticket",
+ "creation": "2026-10-03 00:00:00.000000",
+ "doc_type": "Support Ticket",
+ "docstatus": 0,
+ "doctype": "Web Form",
+ "idx": 0,
+ "introduction_text": "Have a question about the system? Submit a ticket and our support team will get back to you by email.",
+ "is_standard": 1,
+ "list_columns": [],
+ "login_required": 1,
+ "max_attachment_size": 0,
+ "modified": "2026-10-03 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Prime Ticket",
+ "name": "new-ticket",
+ "owner": "Administrator",
+ "published": 1,
+ "route": "new-ticket",
+ "show_attachments": 1,
+ "show_list": 1,
+ "show_sidebar": 0,
+ "success_message": "Your ticket has been submitted. You will receive an email when its status changes.",
+ "title": "Submit a Support Ticket",
+ "web_form_fields": [
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject",
+   "max_length": 0,
+   "max_value": 0,
+   "reqd": 1
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Question\nBug Report\nFeature Request\nHow-To\nOther",
+   "reqd": 1
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Low\nMedium\nHigh\nUrgent"
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Describe your question or issue",
+   "max_length": 0,
+   "max_value": 0,
+   "reqd": 1
+  }
+ ]
+}
