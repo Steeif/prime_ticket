@@ -49,6 +49,85 @@ bench update --app prime_ticket
    SMTP), otherwise notifications queue but never send.
 3. Share the form link: `https://your-erp-domain.com/new-ticket`
 
+## DocType Structure
+
+This app is built around a simple parent-child structure:
+
+```mermaid
+erDiagram
+    SUPPORT_TICKET ||--o{ TICKET_REPLY : contains
+    WEB_FORM ||--o| SUPPORT_TICKET : creates
+
+    SUPPORT_TICKET {
+        string ticket_name PK
+        string subject
+        string category
+        string priority
+        string status
+        string description
+        string raised_by
+        string email
+        datetime opened_at
+        datetime resolved_at
+        string resolution
+    }
+
+    TICKET_REPLY {
+        string name PK
+        string parent FK
+        string reply
+        string reply_by
+        string reply_by_name
+        datetime reply_on
+    }
+
+    WEB_FORM {
+        string name
+        string title
+        string route
+        string doc_type
+    }
+```
+
+### Ticket lifecycle
+
+```mermaid
+flowchart TD
+    A[User visits /new-ticket] -->|Login required| B[User fills web form]
+    B --> C[Submit ticket]
+    C --> D[Support Ticket created<br/>Status: Open]
+
+    D --> E[Email notification sent<br/>to Ticket Operators]
+    E --> F{Operator reviews ticket}
+
+    F -->|Takes action| G[Status: Working in Progress]
+    G --> H{More info needed?}
+
+    H -->|Yes| I[Status: Pending]
+    I --> J[Operator adds reply]
+    J --> K[Email notification sent<br/>to User]
+    K --> L[User sees reply]
+    L --> M[Status: Waiting for Reply]
+
+    M --> N{User responds?}
+    N -->|Yes| O[User adds reply]
+    O --> P[Status: Reopened]
+    P --> G
+
+    N -->|No / Timeout| Q[Status: Closed]
+
+    H -->|No, resolved| R[Operator adds resolution notes]
+    R --> S[Status: Resolved]
+    S --> T[Email sent to User with resolution]
+    T --> U{User satisfied?}
+
+    U -->|Yes| V[Status: Closed]
+    U -->|No| W[Status: Reopened]
+    W --> G
+
+    V --> X[Ticket archived]
+```
+
 ## Uninstall
 
 ```bash
