@@ -1,0 +1,101 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"header-prime-ticket\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Prime Ticket Workspace</span>\",\"col\":12}},{\"id\":\"shortcut-new-ticket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Ticket\",\"col\":3}},{\"id\":\"shortcut-all-tickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Tickets\",\"col\":3}},{\"id\":\"shortcut-open-tickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Tickets\",\"col\":3}}]",
+ "creation": "2026-10-03 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "ticket",
+ "indicator": "Green",
+ "is_hidden": 0,
+ "label": "Prime Ticket",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Ticket Management",
+   "link_count": 3,
+   "link_type": "DocType",
+   "link_to": "Support Ticket",
+   "onboard": 1,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "All Tickets",
+   "link_count": 0,
+   "link_to": "Support Ticket",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Open Tickets",
+   "link_count": 0,
+   "link_to": "Support Ticket",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Submit a Ticket",
+   "link_count": 0,
+   "link_to": "new-ticket",
+   "link_type": "Page",
+   "onboard": 1,
+   "type": "Link"
+  }
+ ],
+ "module": "Prime Ticket",
+ "name": "Prime Ticket",
+ "number_cards": [],
+ "owner": "Administrator",
+ "public": 1,
+ "quick_lists": [
+  {
+   "label": "Open Tickets",
+   "link_to": "Support Ticket",
+   "stats_filter": "[{\"status\":\"Open\"}]",
+   "type": "DocType"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 1,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "doc_view": "New",
+   "icon": "octicon octicon-plus",
+   "label": "New Ticket",
+   "link_to": "Support Ticket",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "icon": "octicon octicon-list-ordered",
+   "label": "All Tickets",
+   "link_to": "Support Ticket",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "icon": "octicon octicon-issue-opened",
+   "label": "Open Tickets",
+   "link_to": "Support Ticket",
+   "stats_filter": "[{\"status\":\"Open\"}]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Prime Ticket",
+ "type": "Workspace"
+}
