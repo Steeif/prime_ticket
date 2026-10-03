@@ -1,0 +1,61 @@
+{
+  "creation": "2026-10-03 00:00:00.000000",
+  "docstatus": 0,
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "level",
+    "threshold_hours",
+    "escalate_to_role",
+    "escalate_to_user",
+    "notify_email",
+    "alert_message"
+  ],
+  "fields": [
+    {
+      "fieldname": "level",
+      "fieldtype": "Int",
+      "label": "Escalation Level",
+      "reqd": 1
+    },
+    {
+      "fieldname": "threshold_hours",
+      "fieldtype": "Int",
+      "label": "Hours Before Escalation",
+      "reqd": 1
+    },
+    {
+      "fieldname": "escalate_to_role",
+      "fieldtype": "Link",
+      "label": "Escalate to Role",
+      "options": "Role"
+    },
+    {
+      "fieldname": "escalate_to_user",
+      "fieldtype": "Link",
+      "label": "Escalate to User",
+      "options": "User"
+    },
+    {
+      "fieldname": "notify_email",
+      "fieldtype": "Data",
+      "label": "Notify Email"
+    },
+    {
+      "fieldname": "alert_message",
+      "fieldtype": "Text",
+      "label": "Alert Message"
+    }
+  ],
+  "idx": 0,
+  "issingle": 0,
+  "istable": 1,
+  "links": [],
+  "modified": "2026-10-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Prime Ticket",
+  "name": "Prime Ticket Escalation Level",
+  "owner": "Administrator",
+  "track_changes": 0
+}
