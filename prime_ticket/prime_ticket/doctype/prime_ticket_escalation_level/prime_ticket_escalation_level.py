@@ -5,5 +5,5 @@ import frappe
 from frappe.model.document import Document
 
 
-class SupportTicket(Document):
+class PrimeTicketEscalationLevel(Document):
     pass
