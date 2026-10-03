@@ -7,10 +7,9 @@ app_license = "MIT"
 
 required_apps = ["frappe"]
 
-# Run after the app is installed on a site: create custom roles
 after_install = "prime_ticket.install.after_install"
 
-# Ship the email notification rules as fixtures (imported on install/migrate)
 fixtures = [
     {"dt": "Notification", "filters": [["module", "=", "Prime Ticket"]]},
+    {"dt": "Workspace", "filters": [["module", "=", "Prime Ticket"]]},
 ]
