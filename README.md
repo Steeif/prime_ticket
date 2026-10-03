@@ -29,15 +29,15 @@ On your bench (Frappe v15/v16):
 ```bash
 cd ~/frappe-bench
 bench get-app https://github.com/Steeif/prime_ticket
-bench --site erp.all-niche.com install-app prime_ticket
-bench --site erp.all-niche.com migrate
+bench --site your-erp-domain.com install-app prime_ticket
+bench --site your-erp-domain.com migrate
 ```
 
 To update later:
 
 ```bash
 bench update --app prime_ticket
-# or: cd apps/prime_ticket && git pull && cd ../.. && bench --site erp.all-niche.com migrate
+# or: cd apps/prime_ticket && git pull && cd ../.. && bench --site your-erp-domain.com migrate
 ```
 
 ## Post-install setup
@@ -47,12 +47,12 @@ bench update --app prime_ticket
    - Regular users -> add **Ticket User** (they keep their normal roles too)
 2. Make sure **email is configured** on the site (Email Account / outgoing
    SMTP), otherwise notifications queue but never send.
-3. Share the form link: `https://erp.all-niche.com/new-ticket`
+3. Share the form link: `https://your-erp-domain.com/new-ticket`
 
 ## Uninstall
 
 ```bash
-bench --site erp.all-niche.com remove-app prime_ticket
+bench --site your-erp-domain.com remove-app prime_ticket
 ```
 
 Warning: this drops the `tabSupport Ticket` and `tabTicket Reply` tables and
