@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"header-prime-ticket\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Prime Ticket Workspace</span>\",\"col\":12}},{\"id\":\"shortcut-new-ticket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Ticket\",\"col\":3}},{\"id\":\"shortcut-all-tickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Tickets\",\"col\":3}},{\"id\":\"shortcut-open-tickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Tickets\",\"col\":3}}]",
+ "content": "[{\"id\":\"header-prime-ticket\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Prime Ticket Workspace</span>\",\"col\":12}},{\"id\":\"shortcut-new-ticket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Ticket\"}},{\"id\":\"shortcut-all-tickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Tickets\"}},{\"id\":\"shortcut-open-tickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Tickets\"}},{\"id\":\"card-ticket-management\",\"type\":\"card\",\"data\":{\"card_name\":\"Ticket Management\"}},{\"id\":\"quick-list-open-tickets\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Open Tickets\"}}]",
  "creation": "2026-10-03 00:00:00.000000",
  "docstatus": 0,
  "doctype": "Workspace",
@@ -61,7 +61,7 @@
   {
    "label": "Open Tickets",
    "link_to": "Support Ticket",
-   "stats_filter": "[{\"status\":\"Open\"}]",
+   "stats_filter": "[[\"status\",\"=\",\"Open\"]]",
    "type": "DocType"
   }
  ],
@@ -92,7 +92,7 @@
    "icon": "octicon octicon-issue-opened",
    "label": "Open Tickets",
    "link_to": "Support Ticket",
-   "stats_filter": "[{\"status\":\"Open\"}]",
+   "stats_filter": "[[\"status\",\"=\",\"Open\"]]",
    "type": "DocType"
   }
  ],
