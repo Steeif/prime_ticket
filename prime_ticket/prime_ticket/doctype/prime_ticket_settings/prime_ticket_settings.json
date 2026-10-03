@@ -1,0 +1,287 @@
+{
+  "autoname": "PRIME-SETTINGS-{#####}",
+  "creation": "2026-10-03 00:00:00.000000",
+  "docstatus": 0,
+  "doctype": "DocType",
+  "document_type": "Document",
+  "editable_grid": 0,
+  "engine": "InnoDB",
+  "field_order": [
+    "general_section",
+    "app_name",
+    "app_logo",
+    "enable_auto_assignment",
+    "auto_assign_method",
+    "enable_notifications",
+    "enable_sla",
+    "default_sla_hours",
+    "operators_section",
+    "operators",
+    "workflow_section",
+    "enable_workflow",
+    "workflow_statuses",
+    "auto_close_days",
+    "auto_escalate_days",
+    "ticket_categories_section",
+    "ticket_categories",
+    "sla_section",
+    "sla_policies",
+    "notifications_section",
+    "notify_on_new_ticket",
+    "notify_on_status_change",
+    "notify_on_assignment",
+    "custom_email_template",
+    "escalation_section",
+    "enable_escalation",
+    "escalation_levels",
+    "integrations_section",
+    "enable_api",
+    "api_token",
+    "webhook_url",
+    "advanced_section",
+    "custom_fields_json",
+    "custom_rules_json",
+    "allow_customer_reassign"
+  ],
+  "fields": [
+    {
+      "fieldname": "general_section",
+      "fieldtype": "Section Break",
+      "label": "General Settings"
+    },
+    {
+      "fieldname": "app_name",
+      "fieldtype": "Data",
+      "label": "Application Name",
+      "default": "Prime Ticket"
+    },
+    {
+      "fieldname": "app_logo",
+      "fieldtype": "Attach",
+      "label": "Application Logo"
+    },
+    {
+      "fieldname": "enable_auto_assignment",
+      "fieldtype": "Check",
+      "label": "Enable Auto-Assignment of Tickets"
+    },
+    {
+      "fieldname": "auto_assign_method",
+      "fieldtype": "Select",
+      "label": "Auto-Assignment Method",
+      "options": "Round Robin\nLeast Busy\nSame Category\nRandom",
+      "depends_on": "eval:doc.enable_auto_assignment == 1"
+    },
+    {
+      "fieldname": "enable_notifications",
+      "fieldtype": "Check",
+      "label": "Enable Email Notifications"
+    },
+    {
+      "fieldname": "enable_sla",
+      "fieldtype": "Check",
+      "label": "Enable SLA Tracking"
+    },
+    {
+      "fieldname": "default_sla_hours",
+      "fieldtype": "Int",
+      "label": "Default SLA Response Time (Hours)",
+      "default": 24,
+      "depends_on": "eval:doc.enable_sla == 1"
+    },
+    {
+      "fieldname": "operators_section",
+      "fieldtype": "Section Break",
+      "label": "Operators Management"
+    },
+    {
+      "fieldname": "operators",
+      "fieldtype": "Table",
+      "label": "Support Operators",
+      "options": "Prime Ticket Operator"
+    },
+    {
+      "fieldname": "workflow_section",
+      "fieldtype": "Section Break",
+      "label": "Workflow Configuration"
+    },
+    {
+      "fieldname": "enable_workflow",
+      "fieldtype": "Check",
+      "label": "Enable Custom Workflow"
+    },
+    {
+      "fieldname": "workflow_statuses",
+      "fieldtype": "Table",
+      "label": "Custom Workflow Statuses",
+      "options": "Prime Ticket Workflow Status",
+      "depends_on": "eval:doc.enable_workflow == 1"
+    },
+    {
+      "fieldname": "auto_close_days",
+      "fieldtype": "Int",
+      "label": "Auto-Close Resolved Tickets (Days)",
+      "default": 7
+    },
+    {
+      "fieldname": "auto_escalate_days",
+      "fieldtype": "Int",
+      "label": "Auto-Escalate Unresponded Tickets (Days)",
+      "default": 3
+    },
+    {
+      "fieldname": "ticket_categories_section",
+      "fieldtype": "Section Break",
+      "label": "Ticket Categories"
+    },
+    {
+      "fieldname": "ticket_categories",
+      "fieldtype": "Table",
+      "label": "Categories",
+      "options": "Prime Ticket Category"
+    },
+    {
+      "fieldname": "sla_section",
+      "fieldtype": "Section Break",
+      "label": "SLA Policies"
+    },
+    {
+      "fieldname": "sla_policies",
+      "fieldtype": "Table",
+      "label": "SLA Policies",
+      "options": "Prime Ticket SLA Policy"
+    },
+    {
+      "fieldname": "notifications_section",
+      "fieldtype": "Section Break",
+      "label": "Notification Settings"
+    },
+    {
+      "fieldname": "notify_on_new_ticket",
+      "fieldtype": "Check",
+      "label": "Notify Operators on New Ticket"
+    },
+    {
+      "fieldname": "notify_on_status_change",
+      "fieldtype": "Check",
+      "label": "Notify Customer on Status Change"
+    },
+    {
+      "fieldname": "notify_on_assignment",
+      "fieldtype": "Check",
+      "label": "Notify Operator on Assignment"
+    },
+    {
+      "fieldname": "custom_email_template",
+      "fieldtype": "Link",
+      "label": "Custom Email Template",
+      "options": "Email Template"
+    },
+    {
+      "fieldname": "escalation_section",
+      "fieldtype": "Section Break",
+      "label": "Escalation Rules"
+    },
+    {
+      "fieldname": "enable_escalation",
+      "fieldtype": "Check",
+      "label": "Enable Escalation"
+    },
+    {
+      "fieldname": "escalation_levels",
+      "fieldtype": "Table",
+      "label": "Escalation Levels",
+      "options": "Prime Ticket Escalation Level",
+      "depends_on": "eval:doc.enable_escalation == 1"
+    },
+    {
+      "fieldname": "integrations_section",
+      "fieldtype": "Section Break",
+      "label": "Integrations"
+    },
+    {
+      "fieldname": "enable_api",
+      "fieldtype": "Check",
+      "label": "Enable External API Access"
+    },
+    {
+      "fieldname": "api_token",
+      "fieldtype": "Password",
+      "label": "API Token",
+      "depends_on": "eval:doc.enable_api == 1"
+    },
+    {
+      "fieldname": "webhook_url",
+      "fieldtype": "Data",
+      "label": "Webhook URL",
+      "depends_on": "eval:doc.enable_api == 1"
+    },
+    {
+      "fieldname": "advanced_section",
+      "fieldtype": "Section Break",
+      "label": "Advanced Settings"
+    },
+    {
+      "fieldname": "custom_fields_json",
+      "fieldtype": "Code",
+      "label": "Custom Fields (JSON)",
+      "options": "json"
+    },
+    {
+      "fieldname": "custom_rules_json",
+      "fieldtype": "Code",
+      "label": "Custom Business Rules (JSON)",
+      "options": "json"
+    },
+    {
+      "fieldname": "allow_customer_reassign",
+      "fieldtype": "Check",
+      "label": "Allow Customers to Reassign Tickets"
+    }
+  ],
+  "idx": 0,
+  "issingle": 1,
+  "istable": 0,
+  "links": [],
+  "max_attachments": 0,
+  "modified": "2026-10-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Prime Ticket",
+  "name": "Prime Ticket Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "amend": 0,
+      "cancel": 0,
+      "create": 0,
+      "delete": 0,
+      "email": 1,
+      "export": 0,
+      "print": 1,
+      "read": 1,
+      "report": 0,
+      "role": "All",
+      "share": 0,
+      "submit": 0,
+      "write": 0
+    },
+    {
+      "amend": 0,
+      "cancel": 0,
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 0,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1
+}
