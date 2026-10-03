@@ -1,0 +1,161 @@
+{
+  "autoname": "PRIME-OPERATOR-{#####}",
+  "creation": "2026-10-03 00:00:00.000000",
+  "docstatus": 0,
+  "doctype": "DocType",
+  "document_type": "Document",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "user",
+    "full_name",
+    "email",
+    "phone",
+    "is_active",
+    "assigned_categories",
+    "max_tickets",
+    "skill_level",
+    "availability_section",
+    "working_hours_start",
+    "working_hours_end",
+    "timezone",
+    "is_available",
+    "permissions_section",
+    "can_resolve",
+    "can_reassign",
+    "can_close",
+    "can_escalate"
+  ],
+  "fields": [
+    {
+      "fieldname": "user",
+      "fieldtype": "Link",
+      "label": "User",
+      "options": "User",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "full_name",
+      "fieldtype": "Data",
+      "label": "Full Name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "email",
+      "fieldtype": "Data",
+      "label": "Email",
+      "read_only": 1
+    },
+    {
+      "fieldname": "phone",
+      "fieldtype": "Phone",
+      "label": "Phone Number"
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1
+    },
+    {
+      "fieldname": "assigned_categories",
+      "fieldtype": "Table MultiSelect",
+      "label": "Assigned Categories",
+      "options": "Prime Ticket Operator Category"
+    },
+    {
+      "fieldname": "max_tickets",
+      "fieldtype": "Int",
+      "label": "Maximum Concurrent Tickets",
+      "default": 10
+    },
+    {
+      "fieldname": "skill_level",
+      "fieldtype": "Select",
+      "label": "Skill Level",
+      "options": "Junior\nIntermediate\nSenior\nExpert"
+    },
+    {
+      "fieldname": "availability_section",
+      "fieldtype": "Section Break",
+      "label": "Availability"
+    },
+    {
+      "fieldname": "working_hours_start",
+      "fieldtype": "Time",
+      "label": "Working Hours Start"
+    },
+    {
+      "fieldname": "working_hours_end",
+      "fieldtype": "Time",
+      "label": "Working Hours End"
+    },
+    {
+      "fieldname": "timezone",
+      "fieldtype": "Select",
+      "label": "Timezone",
+      "options": "UTC\nEST\nCST\nMST\nPST\nGMT\nIST\nAET"
+    },
+    {
+      "fieldname": "is_available",
+      "fieldtype": "Check",
+      "label": "Currently Available"
+    },
+    {
+      "fieldname": "permissions_section",
+      "fieldtype": "Section Break",
+      "label": "Permissions"
+    },
+    {
+      "fieldname": "can_resolve",
+      "fieldtype": "Check",
+      "label": "Can Resolve Tickets",
+      "default": 1
+    },
+    {
+      "fieldname": "can_reassign",
+      "fieldtype": "Check",
+      "label": "Can Reassign Tickets"
+    },
+    {
+      "fieldname": "can_close",
+      "fieldtype": "Check",
+      "label": "Can Close Tickets"
+    },
+    {
+      "fieldname": "can_escalate",
+      "fieldtype": "Check",
+      "label": "Can Escalate Tickets"
+    }
+  ],
+  "idx": 0,
+  "issingle": 0,
+  "istable": 0,
+  "links": [],
+  "modified": "2026-10-03 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Prime Ticket",
+  "name": "Prime Ticket Operator",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "amend": 0,
+      "cancel": 0,
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 0,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "track_changes": 1
+}
