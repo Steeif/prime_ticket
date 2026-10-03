@@ -41,7 +41,8 @@
    }
   ],
   "send_system_notification": 1,
-  "subject": "Resolved: {{ doc.name }} - {{ doc.subject }}"
+  "subject": "Resolved: {{ doc.name }} - {{ doc.subject }}",
+  "value_changed": "status"
  },
  {
   "channel": "Email",
@@ -63,7 +64,8 @@
    }
   ],
   "send_system_notification": 1,
-  "subject": "Action needed: {{ doc.name }} - {{ doc.subject }}"
+  "subject": "Action needed: {{ doc.name }} - {{ doc.subject }}",
+  "value_changed": "status"
  },
  {
   "channel": "Email",
@@ -85,6 +87,7 @@
    }
   ],
   "send_system_notification": 1,
-  "subject": "Reopened ticket: {{ doc.name }} - {{ doc.subject }}"
+  "subject": "Reopened ticket: {{ doc.name }} - {{ doc.subject }}",
+  "value_changed": "status"
  }
 ]
