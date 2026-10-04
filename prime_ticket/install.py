@@ -4,6 +4,21 @@ ROLES = ["Ticket Operator", "Ticket User"]
 
 
 def after_install():
+    """Runs once when the app is installed on a site."""
+    create_roles()
+    create_notifications()
+    frappe.db.commit()
+
+
+def after_migrate():
+    """Runs on every migrate — keeps roles and notifications in place even
+    if the app was installed before they existed or they were deleted."""
+    create_roles()
+    create_notifications()
+    frappe.db.commit()
+
+
+def create_roles():
     """Create the custom roles used by the ticketing workflow."""
     for role_name in ROLES:
         if not frappe.db.exists("Role", role_name):
@@ -15,13 +30,9 @@ def after_install():
             role.insert(ignore_permissions=True)
             frappe.logger().info(f"prime_ticket: created role {role_name}")
 
-    # Create notifications after roles exist
-    create_notifications()
-    frappe.db.commit()
-
 
 def create_notifications():
-    """Create custom notifications for ticket workflows."""
+    """Create custom notifications for ticket workflows (idempotent)."""
     notifications = [
         {
             "doctype": "Notification",
@@ -46,7 +57,7 @@ def create_notifications():
             "is_standard": 0,
             "condition": "doc.status == 'Resolved'",
             "value_changed": "status",
-            "message": "<p>Hello,</p><p>Your support ticket <b>{{ doc.name }} - {{ doc.subject }}</b> has been marked as <b>Resolved</b>.</p>{% if doc.resolution %}<p><b>Resolution:</b><br>{{ doc.resolution }}</p>{% endif %}<p>If you are satisfied with the resolution, the ticket will be closed. If you need further assistance, you can reopen it.</p>",
+            "message": "<p>Hello,</p><p>Your support ticket <b>{{ doc.name }} - {{ doc.subject }}</b> has been marked as <b>Resolved</b>.</p>{% if doc.resolution %}<p><b>Resolution:</b><br>{{ doc.resolution }}</p>{% endif %}<p>If your issue is not solved, you can reopen the ticket or reply to this email.</p>",
             "subject": "Resolved: {{ doc.name }} - {{ doc.subject }}",
             "send_system_notification": 1,
             "recipients": [{"receiver_by_document_field": "email", "doctype": "Notification Recipient"}],

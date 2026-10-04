@@ -7,9 +7,6 @@ app_license = "MIT"
 
 required_apps = ["frappe"]
 
+# Roles + notifications are created idempotently (safe to run on every migrate)
 after_install = "prime_ticket.install.after_install"
-
-fixtures = [
-    {"dt": "Notification", "filters": [["module", "=", "Prime Ticket"]]},
-    {"dt": "Workspace", "filters": [["module", "=", "Prime Ticket"]]},
-]
+after_migrate = "prime_ticket.install.after_migrate"

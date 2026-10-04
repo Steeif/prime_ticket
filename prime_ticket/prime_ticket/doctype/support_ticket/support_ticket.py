@@ -3,7 +3,29 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.utils import now_datetime
 
 
 class SupportTicket(Document):
-    pass
+    def validate(self):
+        # Stamp the creator / contact email (web form doesn't send these fields)
+        if not self.raised_by:
+            self.raised_by = frappe.session.user
+        if not self.email and self.raised_by:
+            self.email = frappe.db.get_value("User", self.raised_by, "email")
+
+        if not self.opened_at:
+            self.opened_at = now_datetime()
+
+        # Track resolution timestamp
+        if self.status == "Resolved" and not self.resolved_at:
+            self.resolved_at = now_datetime()
+        if self.status in ("Open", "Working in Progress", "Pending", "Waiting for Reply", "Reopened"):
+            self.resolved_at = None
+
+        # Stamp any new replies with author + time
+        for row in self.replies or []:
+            if row.is_new() and not row.reply_by:
+                row.reply_by = frappe.session.user
+                row.reply_by_name = frappe.db.get_value("User", frappe.session.user, "full_name")
+                row.reply_on = now_datetime()

@@ -1,6 +1,6 @@
 {
   "charts": [],
-  "content": "[{\"id\":\"header-prime-ticket\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Prime Ticket Management</span>\",\"col\":12}},{\"id\":\"ticket-management\",\"type\":\"card\",\"data\":{\"title\":\"Ticket Management\",\"col\":12}},{\"id\":\"all-tickets\",\"type\":\"shortcut\",\"data\":{\"doc_type\":\"Support Ticket\",\"label\":\"All Tickets\",\"color\":\"Green\"}},{\"id\":\"new-ticket\",\"type\":\"shortcut\",\"data\":{\"doc_type\":\"Support Ticket\",\"label\":\"New Ticket\",\"color\":\"Blue\"}},{\"id\":\"open-tickets\",\"type\":\"shortcut\",\"data\":{\"doc_type\":\"Support Ticket\",\"label\":\"Open Tickets\",\"color\":\"Orange\"}},{\"id\":\"ticket-replies\",\"type\":\"shortcut\",\"data\":{\"doc_type\":\"Ticket Reply\",\"label\":\"Ticket Replies\",\"color\":\"Yellow\"}},{\"id\":\"categories\",\"type\":\"shortcut\",\"data\":{\"doc_type\":\"Prime Ticket Category\",\"label\":\"Categories\",\"color\":\"Purple\"}},{\"id\":\"operators-section\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\">Operators & Settings</span>\",\"col\":12}},{\"id\":\"operators-card\",\"type\":\"card\",\"data\":{\"title\":\"Operators\",\"col\":12}},{\"id\":\"all-operators\",\"type\":\"shortcut\",\"data\":{\"doc_type\":\"Prime Ticket Operator\",\"label\":\"Support Operators\",\"color\":\"Red\"}},{\"id\":\"settings-card\",\"type\":\"card\",\"data\":{\"title\":\"Settings & Configuration\",\"col\":12}},{\"id\":\"settings\",\"type\":\"shortcut\",\"data\":{\"doc_type\":\"Prime Ticket Settings\",\"label\":\"Settings\",\"color\":\"Gray\"}},{\"id\":\"workflow-statuses\",\"type\":\"shortcut\",\"data\":{\"doc_type\":\"Prime Ticket Workflow Status\",\"label\":\"Workflow Statuses\",\"color\":\"Teal\"}},{\"id\":\"escalation-levels\",\"type\":\"shortcut\",\"data\":{\"doc_type\":\"Prime Ticket Escalation Level\",\"label\":\"Escalation Levels\",\"color\":\"Pink\"}}]",
+  "content": "[{\"id\":\"hdrPrimeTk01\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Support Tickets</b></span>\",\"col\":12}},{\"id\":\"sNewTicket01\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Ticket\",\"col\":3}},{\"id\":\"sAllTicket01\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Tickets\",\"col\":3}},{\"id\":\"sOpenTickt01\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Tickets\",\"col\":3}},{\"id\":\"sWaitingR001\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Waiting for Reply\",\"col\":3}},{\"id\":\"spcPrime001\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"crdTicket01\",\"type\":\"card\",\"data\":{\"card_name\":\"Tickets\",\"col\":4}}]",
   "creation": "2026-10-03 00:00:00.000000",
   "docstatus": 0,
   "doctype": "Workspace",
@@ -13,8 +13,8 @@
     {
       "hidden": 0,
       "is_query_report": 0,
-      "label": "Ticket Management",
-      "link_count": 5,
+      "label": "Tickets",
+      "link_count": 3,
       "link_type": "DocType",
       "link_to": "Support Ticket",
       "onboard": 1,
@@ -37,125 +37,31 @@
       "link_count": 0,
       "link_to": "Support Ticket",
       "link_type": "DocType",
-      "onboard": 1,
+      "onboard": 0,
       "type": "Link"
     },
     {
       "hidden": 0,
       "is_query_report": 0,
-      "label": "Open Tickets",
+      "label": "Reopened Tickets",
       "link_count": 0,
       "link_to": "Support Ticket",
-      "link_type": "DocType",
-      "onboard": 1,
-      "type": "Link"
-    },
-    {
-      "hidden": 0,
-      "is_query_report": 0,
-      "label": "Ticket Replies",
-      "link_count": 0,
-      "link_to": "Ticket Reply",
-      "link_type": "DocType",
-      "onboard": 0,
-      "type": "Link"
-    },
-    {
-      "hidden": 0,
-      "is_query_report": 0,
-      "label": "Ticket Categories",
-      "link_count": 0,
-      "link_to": "Prime Ticket Category",
-      "link_type": "DocType",
-      "onboard": 0,
-      "type": "Link"
-    },
-    {
-      "hidden": 0,
-      "is_query_report": 0,
-      "label": "Operators",
-      "link_count": 3,
-      "link_type": "DocType",
-      "link_to": "Prime Ticket Operator",
-      "onboard": 1,
-      "type": "Card Break"
-    },
-    {
-      "hidden": 0,
-      "is_query_report": 0,
-      "label": "Support Operators",
-      "link_count": 0,
-      "link_to": "Prime Ticket Operator",
-      "link_type": "DocType",
-      "onboard": 0,
-      "type": "Link"
-    },
-    {
-      "hidden": 0,
-      "is_query_report": 0,
-      "label": "Settings & Configuration",
-      "link_count": 3,
-      "link_type": "DocType",
-      "link_to": "Prime Ticket Settings",
-      "onboard": 1,
-      "type": "Card Break"
-    },
-    {
-      "hidden": 0,
-      "is_query_report": 0,
-      "label": "Settings",
-      "link_count": 0,
-      "link_to": "Prime Ticket Settings",
-      "link_type": "DocType",
-      "onboard": 1,
-      "type": "Link"
-    },
-    {
-      "hidden": 0,
-      "is_query_report": 0,
-      "label": "Workflow Statuses",
-      "link_count": 0,
-      "link_to": "Prime Ticket Workflow Status",
-      "link_type": "DocType",
-      "onboard": 0,
-      "type": "Link"
-    },
-    {
-      "hidden": 0,
-      "is_query_report": 0,
-      "label": "Escalation Levels",
-      "link_count": 0,
-      "link_to": "Prime Ticket Escalation Level",
       "link_type": "DocType",
       "onboard": 0,
       "type": "Link"
     }
   ],
   "module": "Prime Ticket",
-  "modified": "2026-10-03 00:00:00.000000",
+  "modified": "2026-10-04 00:00:00.000000",
   "modified_by": "Administrator",
   "name": "Prime Ticket",
   "owner": "Administrator",
   "public": 1,
-  "quick_lists": [
-    {
-      "label": "Open Tickets",
-      "link_to": "Support Ticket",
-      "stats_filter": "[[\"status\", \"=\", \"Open\"]]",
-      "type": "DocType"
-    },
-    {
-      "label": "Active Operators",
-      "link_to": "Prime Ticket Operator",
-      "stats_filter": "[[\"is_active\", \"=\", 1]]",
-      "type": "DocType"
-    }
-  ],
+  "quick_lists": [],
   "shortcuts": [
     {
       "color": "Blue",
       "doc_view": "New",
-      "icon": "octicon octicon-plus",
       "label": "New Ticket",
       "link_to": "Support Ticket",
       "stats_filter": "[]",
@@ -164,7 +70,6 @@
     {
       "color": "Green",
       "doc_view": "List",
-      "icon": "octicon octicon-list-ordered",
       "label": "All Tickets",
       "link_to": "Support Ticket",
       "stats_filter": "[]",
@@ -173,28 +78,17 @@
     {
       "color": "Orange",
       "doc_view": "List",
-      "icon": "octicon octicon-issue-opened",
       "label": "Open Tickets",
       "link_to": "Support Ticket",
-      "stats_filter": "[[\"status\", \"=\", \"Open\"]]",
-      "type": "DocType"
-    },
-    {
-      "color": "Red",
-      "doc_view": "List",
-      "icon": "octicon octicon-people",
-      "label": "Operators",
-      "link_to": "Prime Ticket Operator",
-      "stats_filter": "[]",
+      "stats_filter": "[[\"Support Ticket\",\"status\",\"=\",\"Open\"]]",
       "type": "DocType"
     },
     {
       "color": "Purple",
       "doc_view": "List",
-      "icon": "octicon octicon-gear",
-      "label": "Settings",
-      "link_to": "Prime Ticket Settings",
-      "stats_filter": "[]",
+      "label": "Waiting for Reply",
+      "link_to": "Support Ticket",
+      "stats_filter": "[[\"Support Ticket\",\"status\",\"=\",\"Waiting for Reply\"]]",
       "type": "DocType"
     }
   ],
