@@ -5,6 +5,8 @@
 
 **A straightforward support-ticket app for Frappe and ERPNext.** Customers submit tickets from a sign-in protected web form; support operators triage requests, reply, and keep customers informed with email notifications.
 
+**Current app version: 1.1.0**
+
 [Install](#install) · [How it works](#how-it-works) · [Access and authentication](#access-and-authentication) · [First-time setup](#first-time-setup)
 
 ## At a glance
@@ -143,7 +145,7 @@ The **Prime Ticket** workspace provides four standalone DocType entries:
 
 Ticket shortcuts and configuration links are grouped into separate workspace cards. Child tables are available from their parent forms, not listed as standalone links.
 
-The **Settings Guide** workspace shortcut opens the in-app documentation page at `/prime-ticket-settings-guide`. The source text is maintained in [prime-ticket-settings.md](prime_ticket/docs/prime-ticket-settings.md). The configured Application Logo is shown on the settings guide and the Submit a Ticket web form.
+The **Settings Guide** workspace shortcut opens the in-app documentation at `/prime-ticket-settings-guide`; read it in Arabic at `/prime-ticket-settings-guide-ar`. The English source is [prime-ticket-settings.md](prime_ticket/docs/prime-ticket-settings.md), and the Arabic source is [prime-ticket-settings-ar.md](prime_ticket/docs/prime-ticket-settings-ar.md). The configured Application Logo is shown on both guide pages and the Submit a Ticket web form.
 
 ## Update
 
