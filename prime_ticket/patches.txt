@@ -1,2 +1,2 @@
 prime_ticket.patches.v1_0.repair_workspace_and_settings_metadata
-
+prime_ticket.patches.v1_0.add_web_form_workspace_shortcut
