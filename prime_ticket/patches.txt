@@ -1,2 +1,2 @@
-# App patches go here, e.g.:
-# prime_ticket.patches.v1.some_patch
+prime_ticket.patches.v1_0.repair_workspace_and_settings_metadata
+
