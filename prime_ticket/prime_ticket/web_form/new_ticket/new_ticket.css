@@ -1,0 +1,9 @@
+.web-form-banner-image {
+	width: auto;
+	max-width: min(240px, 70vw);
+	max-height: 110px;
+	object-fit: contain;
+	display: block;
+	margin: 1.5rem auto 0;
+}
+
