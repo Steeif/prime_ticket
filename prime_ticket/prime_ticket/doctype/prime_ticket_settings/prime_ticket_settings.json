@@ -1,5 +1,4 @@
 {
-  "autoname": "PRIME-SETTINGS-{#####}",
   "creation": "2026-10-03 00:00:00.000000",
   "docstatus": 0,
   "doctype": "DocType",
@@ -98,7 +97,7 @@
       "fieldname": "operators",
       "fieldtype": "Table",
       "label": "Support Operators",
-      "options": "Prime Ticket Operator"
+      "options": "Prime Ticket Settings Operator"
     },
     {
       "fieldname": "workflow_section",
@@ -138,7 +137,7 @@
       "fieldname": "ticket_categories",
       "fieldtype": "Table",
       "label": "Categories",
-      "options": "Prime Ticket Category"
+      "options": "Prime Ticket Settings Category"
     },
     {
       "fieldname": "sla_section",
