@@ -49,6 +49,30 @@ bench update --app prime_ticket
    SMTP), otherwise notifications queue but never send.
 3. Share the form link: `https://your-erp-domain.com/new-ticket`
 
+## Authentication and access control
+
+Prime Ticket uses Frappe's authentication and permission system; it does not
+implement a separate login endpoint, password store, session mechanism, or API
+token validator.
+
+- The `new-ticket` Web Form sets `login_required` to `1` and applies document
+  permissions. A visitor must sign in to the Frappe site before submitting a
+  ticket. Frappe authenticates the credentials and maintains the logged-in
+  session; the app's form code does not receive or store the password.
+- `Support Ticket` permissions grant System Manager and Ticket Operator access
+  to all tickets. Ticket User has create/read/write permissions restricted by
+  ownership (`if_owner`). The controller fills `raised_by` and `email` from
+  `frappe.session.user` and that user's record; it does not accept these values
+  from the web form.
+- The `Ticket Operator` and `Ticket User` roles are created idempotently by
+  `install.py` on install and migrate. Administrators assign those roles to
+  site users.
+- `Prime Ticket Settings.api_token` is currently only a Password-type settings
+  field shown when `enable_api` is set. No app endpoint reads, issues, checks,
+  or uses that value, so enabling it does not enable API authentication.
+  Integrations would need to use Frappe's authenticated API mechanisms or add
+  an explicitly implemented and secured token flow.
+
 ## DocType Structure
 
 This app is built around a simple parent-child structure:
