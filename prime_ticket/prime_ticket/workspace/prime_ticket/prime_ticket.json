@@ -1,6 +1,6 @@
 {
   "charts": [],
-  "content": "[{\"id\":\"hdrTickets\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Support Tickets</b></span>\",\"col\":12}},{\"id\":\"scNewTicket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Ticket\",\"col\":3}},{\"id\":\"scAllTickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Tickets\",\"col\":3}},{\"id\":\"scOpenTickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Tickets\",\"col\":3}},{\"id\":\"scWaitingReply\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Waiting for Reply\",\"col\":3}},{\"id\":\"scReopened\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Reopened Tickets\",\"col\":3}},{\"id\":\"spacerTickets\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"cardTickets\",\"type\":\"card\",\"data\":{\"card_name\":\"Ticket Management\",\"col\":6}},{\"id\":\"cardConfiguration\",\"type\":\"card\",\"data\":{\"card_name\":\"Configuration\",\"col\":6}}]",
+  "content": "[{\"id\":\"hdrTickets\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Support Tickets</b></span>\",\"col\":12}},{\"id\":\"scNewTicket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Ticket\",\"col\":3}},{\"id\":\"scSubmitTicket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Submit a Ticket\",\"col\":3}},{\"id\":\"scAllTickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Tickets\",\"col\":3}},{\"id\":\"scOpenTickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Tickets\",\"col\":3}},{\"id\":\"scWaitingReply\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Waiting for Reply\",\"col\":3}},{\"id\":\"scReopened\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Reopened Tickets\",\"col\":3}},{\"id\":\"spacerTickets\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"cardTickets\",\"type\":\"card\",\"data\":{\"card_name\":\"Ticket Management\",\"col\":6}},{\"id\":\"cardConfiguration\",\"type\":\"card\",\"data\":{\"card_name\":\"Configuration\",\"col\":6}}]",
   "creation": "2026-10-03 00:00:00.000000",
   "docstatus": 0,
   "doctype": "Workspace",
@@ -26,6 +26,7 @@
   "quick_lists": [],
   "shortcuts": [
     {"color": "Blue", "doc_view": "New", "label": "New Ticket", "link_to": "Support Ticket", "stats_filter": "[]", "type": "DocType"},
+    {"color": "Blue", "label": "Submit a Ticket", "type": "URL", "url": "/new-ticket"},
     {"color": "Green", "doc_view": "List", "label": "All Tickets", "link_to": "Support Ticket", "stats_filter": "[]", "type": "DocType"},
     {"color": "Orange", "doc_view": "List", "label": "Open Tickets", "link_to": "Support Ticket", "stats_filter": "[[\"Support Ticket\",\"status\",\"=\",\"Open\"]]", "type": "DocType"},
     {"color": "Purple", "doc_view": "List", "label": "Waiting for Reply", "link_to": "Support Ticket", "stats_filter": "[[\"Support Ticket\",\"status\",\"=\",\"Waiting for Reply\"]]", "type": "DocType"},
