@@ -143,6 +143,8 @@ The **Prime Ticket** workspace provides four standalone DocType entries:
 
 Ticket shortcuts and configuration links are grouped into separate workspace cards. Child tables are available from their parent forms, not listed as standalone links.
 
+The **Settings Guide** workspace shortcut opens the in-app documentation page at `/prime-ticket-settings-guide`. The source text is maintained in [prime-ticket-settings.md](prime_ticket/docs/prime-ticket-settings.md). The configured Application Logo is shown on the settings guide and the Submit a Ticket web form.
+
 ## Update
 
 From the bench directory, update the app and migrate the site:
@@ -163,3 +165,4 @@ Back up the site before uninstalling. Removing an app can remove its DocTypes an
 ## License
 
 MIT. See [license.txt](license.txt).
+
