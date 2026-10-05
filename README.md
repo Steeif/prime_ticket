@@ -1,166 +1,163 @@
 # Prime Ticket
 
-Internal support ticketing app for Frappe/ERPNext.
+![Frappe v15+](https://img.shields.io/badge/Frappe-v15%2B-0089ff?logo=frappe&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-Users submit tickets through a login-required web form, operators work them
-through a status workflow, and email notifications keep both sides informed.
+**A straightforward support-ticket app for Frappe and ERPNext.** Customers submit tickets from a sign-in protected web form; support operators triage requests, reply, and keep customers informed with email notifications.
 
-## Features
+[Install](#install) · [How it works](#how-it-works) · [Access and authentication](#access-and-authentication) · [Configuration](#configuration)
 
-- **Support Ticket** DocType (`TICK-00001` naming) with category, priority,
-  attachments, a replies thread, and resolution notes
-- **Status workflow:** Open / Working in Progress / Pending / Waiting for
-  Reply / Resolved / Reopened / Closed
-- **Web form** at `/new-ticket` (login required) — users also get a list of
-  their own past tickets
-- **Roles:** `Ticket Operator` (sees and works all tickets) and `Ticket User`
-  (sees only their own) — created automatically on install
-- **Email notifications** (shipped as fixtures):
-  - New ticket -> all Ticket Operators
-  - Status -> Resolved -> email to the ticket raiser
-  - Status -> Waiting for Reply -> email to the ticket raiser
-  - Status -> Reopened -> all Ticket Operators
-- Color-coded list view by status
+## At a glance
 
-## Install
+| For customers | For support operators |
+| --- | --- |
+| Submit a ticket at `/new-ticket` | View and update all tickets in Desk |
+| See tickets they have permission to access | Reply, change status, and add resolution notes |
+| Receive email when a ticket is resolved or needs a reply | Receive email when tickets are created or reopened |
 
-On your bench (Frappe v15/v16):
+Tickets use the `TICK-00001` naming format. Each ticket records its category, priority, status, description, raiser, replies, and optional resolution notes.
 
-```bash
-cd ~/frappe-bench
-bench get-app https://github.com/Steeif/prime_ticket
-bench --site your-erp-domain.com install-app prime_ticket
-bench --site your-erp-domain.com migrate
+## How it works
+
+```mermaid
+flowchart LR
+    Customer[Customer] -->|Signs in| Form[Submit ticket<br/>/new-ticket]
+    Form -->|Creates| Ticket[Support Ticket<br/>Status: Open]
+    Ticket -->|New ticket email| Operators[Ticket Operators]
+    Operators -->|Work, reply, update status| Ticket
+    Ticket -->|Resolved or reply requested| Customer
 ```
 
-To update later:
+### Ticket statuses
 
-```bash
-bench update --app prime_ticket
-# or: cd apps/prime_ticket && git pull && cd ../.. && bench --site your-erp-domain.com migrate
-```
+The Support Ticket DocType offers these status values. They are selectable values; the app does not enforce a state-transition workflow.
 
-## Post-install setup
+| Status | Typical use |
+| --- | --- |
+| Open | Newly submitted ticket |
+| Working in Progress | Operator is investigating |
+| Pending | Work is temporarily on hold |
+| Waiting for Reply | The customer needs to provide more information; sends a customer email |
+| Reopened | A resolved ticket needs more work; notifies operators |
+| Resolved | Operator has recorded a resolution; sends a customer email |
+| Closed | Work is complete |
 
-1. **Assign roles** (User list -> select user -> Roles):
-   - Support staff -> add **Ticket Operator**
-   - Regular users -> add **Ticket User** (they keep their normal roles too)
-2. Make sure **email is configured** on the site (Email Account / outgoing
-   SMTP), otherwise notifications queue but never send.
-3. Share the form link: `https://your-erp-domain.com/new-ticket`
+The list view color-codes tickets by status. The workspace includes shortcuts for **New Ticket**, **All Tickets**, **Open Tickets**, **Waiting for Reply**, and **Reopened Tickets**, with live counts on the filtered lists.
 
-## Authentication and access control
-
-Prime Ticket uses Frappe's authentication and permission system; it does not
-implement a separate login endpoint, password store, session mechanism, or API
-token validator.
-
-- The `new-ticket` Web Form sets `login_required` to `1` and applies document
-  permissions. A visitor must sign in to the Frappe site before submitting a
-  ticket. Frappe authenticates the credentials and maintains the logged-in
-  session; the app's form code does not receive or store the password.
-- `Support Ticket` permissions grant System Manager and Ticket Operator access
-  to all tickets. Ticket User has create/read/write permissions restricted by
-  ownership (`if_owner`). The controller fills `raised_by` and `email` from
-  `frappe.session.user` and that user's record; it does not accept these values
-  from the web form.
-- The `Ticket Operator` and `Ticket User` roles are created idempotently by
-  `install.py` on install and migrate. Administrators assign those roles to
-  site users.
-- `Prime Ticket Settings.api_token` is currently only a Password-type settings
-  field shown when `enable_api` is set. No app endpoint reads, issues, checks,
-  or uses that value, so enabling it does not enable API authentication.
-  Integrations would need to use Frappe's authenticated API mechanisms or add
-  an explicitly implemented and secured token flow.
-
-## DocType Structure
-
-This app is built around a simple parent-child structure:
+### Data model
 
 ```mermaid
 erDiagram
-    SUPPORT_TICKET ||--o{ TICKET_REPLY : contains
-    WEB_FORM ||--o| SUPPORT_TICKET : creates
+    SUPPORT_TICKET ||--o{ TICKET_REPLY : has
+    PRIME_TICKET_SETTINGS ||--o{ PRIME_TICKET_SETTINGS_CATEGORY : selects
+    PRIME_TICKET_SETTINGS ||--o{ PRIME_TICKET_SETTINGS_OPERATOR : selects
+    PRIME_TICKET_SETTINGS ||--o{ PRIME_TICKET_SLA_POLICY : configures
+    PRIME_TICKET_OPERATOR ||--o{ PRIME_TICKET_OPERATOR_CATEGORY : covers
 
     SUPPORT_TICKET {
-        string ticket_name PK
+        string name PK
         string subject
         string category
         string priority
         string status
-        string description
+        text description
         string raised_by
         string email
         datetime opened_at
         datetime resolved_at
-        string resolution
+        text resolution
     }
 
     TICKET_REPLY {
-        string name PK
         string parent FK
-        string reply
+        text reply
         string reply_by
-        string reply_by_name
         datetime reply_on
-    }
-
-    WEB_FORM {
-        string name
-        string title
-        string route
-        string doc_type
     }
 ```
 
-### Ticket lifecycle
+The settings, SLA, workflow status, escalation, reply, and category-assignment rows are child tables. They are edited through their parent forms rather than opened as standalone workspace items.
+
+## Install
+
+Prime Ticket supports Frappe/ERPNext v15 and v16. From your bench directory:
+
+```bash
+bench get-app https://github.com/Steeif/prime_ticket
+bench --site your-site.example install-app prime_ticket
+bench --site your-site.example migrate
+```
+
+The migration command syncs DocTypes and runs the app's metadata repair patch on existing sites.
+
+## First-time setup
+
+1. In **Users**, assign **Ticket Operator** to support staff and **Ticket User** to customers. Users may keep their other roles.
+2. Configure an outgoing email account in Frappe so ticket notifications can be delivered.
+3. Share `https://your-site.example/new-ticket` with users who should submit tickets.
+
+The app creates both roles automatically during installation and migration. It also creates these notifications idempotently:
+
+| Event | Recipient |
+| --- | --- |
+| New ticket | Ticket Operators |
+| Status changes to Resolved | Ticket raiser |
+| Status changes to Waiting for Reply | Ticket raiser |
+| Status changes to Reopened | Ticket Operators |
+
+## Access and authentication
+
+Prime Ticket uses Frappe's login, session, roles, and DocType permissions. It does not provide a separate login service.
 
 ```mermaid
-flowchart TD
-    A[User visits /new-ticket] -->|Login required| B[User fills web form]
-    B --> C[Submit ticket]
-    C --> D[Support Ticket created<br/>Status: Open]
+sequenceDiagram
+    actor User
+    participant Frappe
+    participant Form as /new-ticket
+    participant Ticket as Support Ticket
 
-    D --> E[Email notification sent<br/>to Ticket Operators]
-    E --> F{Operator reviews ticket}
+    User->>Frappe: Sign in with site credentials
+    Frappe-->>User: Authenticated session
+    User->>Form: Open form and submit
+    Form->>Frappe: Require login and document permissions
+    Frappe->>Ticket: Create ticket
+    Ticket->>Ticket: Stamp current user and email
+```
 
-    F -->|Takes action| G[Status: Working in Progress]
-    G --> H{More info needed?}
+- The `new-ticket` Web Form requires login and applies document permissions. Frappe handles credentials and the authenticated session; Prime Ticket does not receive or store the user's password.
+- System Managers and Ticket Operators can access all Support Tickets. Ticket Users can create tickets and access tickets they own.
+- `SupportTicket.validate()` fills `raised_by` from `frappe.session.user` and looks up the user's email. Reply author and timestamp are stamped from the current session as well.
+- `Prime Ticket Settings.api_token` is a Password-type field displayed when `enable_api` is enabled. No Prime Ticket endpoint reads or validates it, so enabling that setting does not enable API authentication. For integrations, use Frappe's configured API authentication and the permissions of the associated Frappe user.
 
-    H -->|Yes| I[Status: Pending]
-    I --> J[Operator adds reply]
-    J --> K[Email notification sent<br/>to User]
-    K --> L[User sees reply]
-    L --> M[Status: Waiting for Reply]
+## Workspace
 
-    M --> N{User responds?}
-    N -->|Yes| O[User adds reply]
-    O --> P[Status: Reopened]
-    P --> G
+The **Prime Ticket** workspace provides four standalone DocType entries:
 
-    N -->|No / Timeout| Q[Status: Closed]
+- Support Ticket
+- Prime Ticket Category
+- Prime Ticket Operator
+- Prime Ticket Settings
 
-    H -->|No, resolved| R[Operator adds resolution notes]
-    R --> S[Status: Resolved]
-    S --> T[Email sent to User with resolution]
-    T --> U{User satisfied?}
+Ticket shortcuts and configuration links are grouped into separate workspace cards. Child tables are available from their parent forms, not listed as standalone links.
 
-    U -->|Yes| V[Status: Closed]
-    U -->|No| W[Status: Reopened]
-    W --> G
+## Update
 
-    V --> X[Ticket archived]
+From the bench directory, update the app and migrate the site:
+
+```bash
+bench update --app prime_ticket
+bench --site your-site.example migrate
 ```
 
 ## Uninstall
 
 ```bash
-bench --site your-erp-domain.com remove-app prime_ticket
+bench --site your-site.example remove-app prime_ticket
 ```
 
-Warning: this drops the `tabSupport Ticket` and `tabTicket Reply` tables and
-all ticket data with them. Export first if you need the history.
+Back up the site before uninstalling. Removing an app can remove its DocTypes and their stored data.
 
 ## License
 
-MIT
+MIT. See [license.txt](license.txt).
+
