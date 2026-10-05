@@ -5,7 +5,7 @@
 
 **A straightforward support-ticket app for Frappe and ERPNext.** Customers submit tickets from a sign-in protected web form; support operators triage requests, reply, and keep customers informed with email notifications.
 
-**Current app version: 1.1.0**
+**Current app version: 1.2.0**
 
 [Install](#install) · [How it works](#how-it-works) · [Access and authentication](#access-and-authentication) · [First-time setup](#first-time-setup)
 
@@ -149,11 +149,14 @@ The **Settings Guide** workspace shortcut opens the in-app documentation at `/pr
 
 ## Update
 
-From the bench directory, update the app and migrate the site:
+Run these commands on the server to update Prime Ticket and sync the site:
 
 ```bash
-bench update --app prime_ticket
-bench --site your-site.example migrate
+cd ~/frappe-bench/apps/prime_ticket
+git pull
+cd ~/frappe-bench
+bench --site frappe.com migrate
+bench --site frappe.com clear-cache
 ```
 
 ## Uninstall
