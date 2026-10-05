@@ -42,7 +42,7 @@ The Support Ticket DocType offers these status values. They are selectable value
 | Resolved | Operator has recorded a resolution; sends a customer email |
 | Closed | Work is complete |
 
-The list view color-codes tickets by status. The workspace includes shortcuts for **New Ticket**, **All Tickets**, **Open Tickets**, **Waiting for Reply**, and **Reopened Tickets**, with live counts on the filtered lists.
+The list view color-codes tickets by status. The workspace includes a **Submit a Ticket** shortcut to the customer web form, plus **New Ticket**, **All Tickets**, **Open Tickets**, **Waiting for Reply**, and **Reopened Tickets**. Filtered ticket lists show live counts.
 
 ### Data model
 
@@ -163,4 +163,3 @@ Back up the site before uninstalling. Removing an app can remove its DocTypes an
 ## License
 
 MIT. See [license.txt](license.txt).
-
