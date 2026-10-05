@@ -1,0 +1,69 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<main class="pt-guide">
+  <header class="pt-hero">
+    {% if app_logo %}
+    <img class="pt-logo" src="{{ app_logo }}" alt="Prime Ticket logo">
+    {% else %}
+    <span class="pt-logo-fallback" aria-hidden="true">PT</span>
+    {% endif %}
+    <span class="pt-eyebrow">PRIME TICKET · ADMIN GUIDE</span>
+    <h1>Prime Ticket Settings</h1>
+    <p>A practical guide to every section in the settings form, including what is active in the current app version.</p>
+    <a class="pt-button" href="/app/prime-ticket-settings">Open Prime Ticket Settings →</a>
+  </header>
+
+  <aside class="pt-notice">
+    <strong>Implementation status</strong>
+    <p>Most settings fields are currently stored configuration and are not read by ticket handling code. Assignment, SLA monitoring, custom statuses, scheduled close/escalation, notification switches, API token, webhook, and custom JSON rules do not currently activate those features. This guide identifies those limits so settings are not mistaken for active automation.</p>
+  </aside>
+
+  <section class="pt-grid">
+    <article class="pt-card"><span class="pt-number">01</span><h2>General Settings</h2><p><b>Application Name</b> is stored but not applied to the UI. <b>Application Logo</b> appears on this guide and the Submit a Ticket form when configured. The auto-assignment controls offer Round Robin, Least Busy, Same Category, and Random, but none currently assigns tickets. The email and SLA switches also do not control notifications or start SLA tracking. The default response target is 24 hours.</p></article>
+    <article class="pt-card"><span class="pt-number">02</span><h2>Operators Management</h2><p><b>Support Operators</b> selects operator records. Operator profiles store a linked Frappe user, categories, capacity, skill, availability, working hours, timezone, and capability flags. They do not currently route tickets or grant roles. Assign the <b>Ticket Operator</b> role to users separately in Frappe.</p></article>
+    <article class="pt-card"><span class="pt-number">03</span><h2>Workflow Configuration</h2><p>Custom workflow rows store a status name, description, color, and order, but Support Ticket still uses its fixed statuses: Open, Working in Progress, Pending, Waiting for Reply, Resolved, Reopened, and Closed. Auto-close defaults to 7 days; auto-escalate defaults to 3 days. No scheduled jobs currently use these values.</p></article>
+    <article class="pt-card"><span class="pt-number">04</span><h2>Ticket Categories</h2><p>This section selects Prime Ticket Category records (name, description, color, icon, active flag). The customer form currently uses fixed choices: Question, Bug Report, Feature Request, How-To, and Other. Changing this settings list does not update the form choices.</p></article>
+    <article class="pt-card"><span class="pt-number">05</span><h2>SLA Policies</h2><p>Each child row holds a priority, response target in hours, resolution target in hours, and optional color. Policies are edited inside Prime Ticket Settings; they are not standalone DocTypes in the workspace. The app does not currently calculate deadlines or alert on SLA breaches.</p></article>
+    <article class="pt-card"><span class="pt-number">06</span><h2>Notification Settings</h2><p>The app currently creates Frappe notifications for new tickets, Resolved, Waiting for Reply, and Reopened. The three notification switches and custom email template do not control those Notification records. Configure outgoing email in Frappe and manage active notification rules under <b>Notification</b>.</p></article>
+    <article class="pt-card"><span class="pt-number">07</span><h2>Escalation Rules</h2><p>The switch and child rows describe escalation levels, wait in days, and a role to notify. They are stored only: no scheduled escalation process currently reads them.</p></article>
+    <article class="pt-card"><span class="pt-number">08</span><h2>Integrations</h2><p><b>Enable External API Access</b> does not create an endpoint. Prime Ticket does not read or validate the Password-type API Token, and no code sends events to Webhook URL. Use Frappe API authentication and the linked Frappe user's permissions for integrations; do not treat this token field as active API access.</p></article>
+    <article class="pt-card"><span class="pt-number">09</span><h2>Advanced Settings</h2><p>Custom Fields (JSON) and Custom Business Rules (JSON) are text fields that are not currently parsed or applied. Allow Customers to Reassign Tickets does not currently change permissions or add a reassignment action.</p></article>
+  </section>
+
+  <section class="pt-active">
+    <h2>What is active now?</h2>
+    <div class="pt-active-grid">
+      <p><span>✓</span> Frappe roles and DocType permissions control ticket access.</p>
+      <p><span>✓</span> Ticket creation stamps the signed-in user and their email.</p>
+      <p><span>✓</span> Status choices are defined on the Support Ticket DocType.</p>
+      <p><span>✓</span> Resolved tickets get a resolution timestamp; active statuses clear it.</p>
+      <p><span>✓</span> App-created Frappe notifications send on the events listed above.</p>
+    </div>
+  </section>
+  <footer class="pt-footer">Settings documentation · <a href="/app/prime-ticket">Back to Prime Ticket workspace</a></footer>
+</main>
+<style>
+  .pt-guide{max-width:1120px;margin:0 auto;padding:28px 20px 56px;color:#19324a}
+  .pt-hero{padding:40px;border-radius:20px;background:linear-gradient(135deg,#eaf5ff,#f4f0ff);border:1px solid #dce8f4;margin-bottom:22px}
+  .pt-eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:#496c91}
+  .pt-logo{display:block;width:auto;max-width:220px;max-height:76px;object-fit:contain;margin-bottom:18px}
+  .pt-logo-fallback{display:inline-grid;place-items:center;width:48px;height:48px;margin-bottom:14px;border-radius:14px;background:#1769aa;color:white;font-size:17px;font-weight:700}
+  .pt-hero h1{font-size:clamp(32px,5vw,48px);margin:12px 0;color:#15324c}
+  .pt-hero p{font-size:17px;max-width:720px;color:#52677c;line-height:1.65}
+  .pt-button{display:inline-block;margin-top:10px;padding:11px 16px;border-radius:9px;background:#1769aa;color:white!important;font-weight:600;text-decoration:none}
+  .pt-notice{padding:18px 22px;border:1px solid #f1d59a;border-left:5px solid #e5a52e;border-radius:12px;background:#fff9e9;margin:22px 0 28px;line-height:1.65}
+  .pt-notice p{margin:6px 0 0;color:#67552f}
+  .pt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .pt-card{position:relative;padding:23px;border:1px solid #e3eaf1;border-radius:14px;background:#fff;box-shadow:0 5px 20px rgba(25,50,74,.045)}
+  .pt-number{font-size:12px;font-weight:700;color:#2878b8;letter-spacing:.08em}
+  .pt-card h2,.pt-active h2{font-size:20px;margin:8px 0;color:#193b59}
+  .pt-card p{margin:0;color:#586b7d;line-height:1.7}
+  .pt-active{margin-top:28px;padding:24px;border-radius:14px;background:#f5f9fc;border:1px solid #e2ebf2}
+  .pt-active-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px 22px}
+  .pt-active-grid p{margin:6px 0;color:#506579;line-height:1.55}
+  .pt-active-grid span{color:#20845c;font-weight:800;margin-right:6px}
+  .pt-footer{margin-top:26px;padding-top:18px;border-top:1px solid #e3eaf1;color:#738396}
+</style>
+{% endblock %}
+
