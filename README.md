@@ -1,11 +1,11 @@
 # Prime Ticket
 
-![Frappe v15+](https://img.shields.io/badge/Frappe-v15%2B-0089ff?logo=frappe&logoColor=white)
+![Frappe v15–16](https://img.shields.io/badge/Frappe-v15--16-0089ff?logo=frappe&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **A straightforward support-ticket app for Frappe and ERPNext.** Customers submit tickets from a sign-in protected web form; support operators triage requests, reply, and keep customers informed with email notifications.
 
-[Install](#install) · [How it works](#how-it-works) · [Access and authentication](#access-and-authentication) · [Configuration](#configuration)
+[Install](#install) · [How it works](#how-it-works) · [Access and authentication](#access-and-authentication) · [First-time setup](#first-time-setup)
 
 ## At a glance
 
@@ -52,6 +52,8 @@ erDiagram
     PRIME_TICKET_SETTINGS ||--o{ PRIME_TICKET_SETTINGS_CATEGORY : selects
     PRIME_TICKET_SETTINGS ||--o{ PRIME_TICKET_SETTINGS_OPERATOR : selects
     PRIME_TICKET_SETTINGS ||--o{ PRIME_TICKET_SLA_POLICY : configures
+    PRIME_TICKET_SETTINGS ||--o{ PRIME_TICKET_WORKFLOW_STATUS : defines
+    PRIME_TICKET_SETTINGS ||--o{ PRIME_TICKET_ESCALATION_LEVEL : configures
     PRIME_TICKET_OPERATOR ||--o{ PRIME_TICKET_OPERATOR_CATEGORY : covers
 
     SUPPORT_TICKET {
@@ -69,6 +71,7 @@ erDiagram
     }
 
     TICKET_REPLY {
+        string name PK
         string parent FK
         text reply
         string reply_by
