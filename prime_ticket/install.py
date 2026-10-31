@@ -63,9 +63,9 @@ def after_install():
 
 
 def after_migrate():
-    """Runs on every migrate — keeps roles and notifications in place even
-    if the app was installed before they existed or they were deleted."""
+    """Runs on every migrate — restores missing roles, categories, and notifications."""
     create_roles()
+    create_default_categories()
     create_notifications()
     frappe.db.commit()
 
