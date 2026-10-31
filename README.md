@@ -19,7 +19,7 @@
 
 Tickets use the `TICK-00001` naming format. Each ticket records its category, priority, status, description, raiser, replies, and optional resolution notes. With SLA tracking enabled, v2 calculates a read-only first-response deadline for new tickets from the matching priority policy or the default response hours, records the first operator reply, and calculates a resolution deadline when a matching policy exists.
 
-## How it works
+Customer instructions are in the [Prime Ticket Customer Guide](prime_ticket/docs/prime-ticket-user-guide.md).\n\n## How it works
 
 ```mermaid
 flowchart LR
@@ -132,7 +132,7 @@ sequenceDiagram
     Ticket->>Ticket: Stamp current user and email
 ```
 
-- The `new-ticket` Web Form requires login and applies document permissions. Frappe handles credentials and the authenticated session; Prime Ticket does not receive or store the user's password.
+- The `new-ticket` Web Form requires login and applies document permissions. The English [customer guide](prime_ticket/docs/prime-ticket-user-guide.md) explains how to submit and follow up on a ticket. Frappe handles credentials and the authenticated session; Prime Ticket does not receive or store the user's password.
 - System Managers and Ticket Operators can access all Support Tickets. Ticket Users can create tickets and access tickets they own.
 - `SupportTicket.validate()` fills `raised_by` from `frappe.session.user` and looks up the user's email. Reply author and timestamp are stamped from the current session as well.
 - `Prime Ticket Settings.api_token` is a Password-type field displayed when `enable_api` is enabled. No Prime Ticket endpoint reads or validates it, so enabling that setting does not enable API authentication. For integrations, use Frappe's configured API authentication and the permissions of the associated Frappe user.
