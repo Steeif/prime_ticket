@@ -41,7 +41,7 @@ New operator and category document names follow their linked or entered names af
 
 ## Ticket Categories
 
-**Categories** selects Prime Ticket Category records in a settings child table. Prime Ticket Category stores a name, description, color, icon class, and active flag. New category records use the entered Category Name as the document name. The customer web form currently has its own fixed category choices (Question, Bug Report, Feature Request, How-To, Other); the settings selection does not currently populate those choices.
+**Categories** selects Prime Ticket Category records in a settings child table. Prime Ticket Category stores a name, description, color, icon class, and active flag. New category records use the entered Category Name as the document name. On installation and each migration, Prime Ticket creates its eight standard category records if their names are missing; matching records are left unchanged. The customer web form currently has its own fixed category choices (Question, Bug Report, Feature Request, How-To, Other); the seeded records do not currently populate those choices.
 
 ## SLA Policies
 
