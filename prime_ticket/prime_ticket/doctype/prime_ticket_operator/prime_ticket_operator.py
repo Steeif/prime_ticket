@@ -29,4 +29,5 @@ class PrimeTicketOperator(Document):
             )
 
         self.full_name = operator_name
+        self.name = operator_name
         self.email = user_details.email
