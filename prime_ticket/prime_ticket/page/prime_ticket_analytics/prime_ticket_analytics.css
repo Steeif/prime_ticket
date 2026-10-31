@@ -1,0 +1,116 @@
+.prime-ticket-analytics-page {
+	--pta-ink: #14283d;
+	--pta-muted: #718197;
+	--pta-line: #e5ebf2;
+	--pta-blue: #347bc5;
+	--pta-violet: #7659d6;
+	--pta-green: #20a879;
+	--pta-red: #dc5a61;
+	padding: 1rem 1.2rem 2rem;
+	background: #f3f6fb;
+}
+.prime-ticket-analytics-page .page-head {
+	background: transparent;
+}
+.pta-shell { max-width: 1440px; margin: 0 auto; color: var(--pta-ink); }
+.pta-hero {
+	display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem;
+	padding: clamp(1.5rem, 4vw, 2.8rem); margin: 0 0 1.4rem; border-radius: 24px;
+	color: #fff; background:
+		radial-gradient(ellipse at 84% 10%, rgba(142,178,255,.34), transparent 32%),
+		linear-gradient(122deg, #102b43 0%, #183f62 60%, #38558c 100%);
+	box-shadow: 0 18px 44px rgba(20,42,68,.16);
+}
+.pta-eyebrow { display:flex; align-items:center; gap:.6rem; color:#bfdbff; font-size:.72rem; font-weight:800; letter-spacing:.15em; }
+.pta-pulse { width:8px; height:8px; border-radius:50%; background:#67e4b4; box-shadow:0 0 0 5px rgba(103,228,180,.13); }
+.pta-hero h1 { margin:.85rem 0 .45rem; color:#fff; font-size:clamp(2rem,4vw,3.15rem); font-weight:780; letter-spacing:-.045em; }
+.pta-hero p { max-width:600px; margin:0; color:#e4edf8; font-size:1rem; line-height:1.6; }
+.pta-filters { display:flex; align-items:flex-end; gap:.65rem; flex-wrap:wrap; }
+.pta-filters label { display:grid; gap:.38rem; color:#dce9f7; font-size:.72rem; font-weight:700; letter-spacing:.04em; }
+.pta-filters input { min-width:145px; height:42px; padding:0 .7rem; border:1px solid rgba(255,255,255,.2); border-radius:10px; color:#18344f; background:#fff; }
+.pta-refresh { height:42px; padding:0 1rem; border:1px solid #6eaff0; border-radius:10px; color:#fff; background:#347bc5; font-weight:700; }
+.pta-refresh:hover { color:#fff; background:#2868ab; }
+.pta-meta { display:flex; justify-content:space-between; gap:1rem; margin:.2rem .15rem 1rem; color:var(--pta-muted); font-size:.78rem; }
+.pta-kpis { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; margin-bottom:1rem; }
+.pta-kpi,.pta-panel { border:1px solid var(--pta-line); border-radius:18px; background:#fff; box-shadow:0 9px 26px rgba(27,49,78,.045); }
+.pta-kpi { position:relative; min-height:155px; overflow:hidden; padding:1.25rem 1.35rem; }
+.pta-kpi::after { position:absolute; right:-28px; bottom:-52px; width:128px; height:128px; border-radius:50%; background:#f1f6fc; content:""; }
+.pta-kpi-primary { color:#fff; border-color:#2866a5; background:linear-gradient(135deg,#347bc5,#245a9b); }
+.pta-kpi-primary::after { background:rgba(255,255,255,.1); }
+.pta-kpi-icon { position:absolute; top:1.3rem; right:1.35rem; color:#7b9ab8; font-size:1.1rem; }
+.pta-kpi-primary .pta-kpi-icon { color:#cae2ff; }
+.pta-kpi-label,.pta-kpi strong,.pta-kpi small { position:relative; z-index:1; display:block; }
+.pta-kpi-label { color:#6c7d91; font-size:.77rem; font-weight:750; letter-spacing:.04em; text-transform:uppercase; }
+.pta-kpi-primary .pta-kpi-label { color:#d5e8fc; }
+.pta-kpi strong { margin:.7rem 0 .25rem; color:var(--pta-ink); font-size:2rem; font-weight:800; letter-spacing:-.045em; line-height:1; }
+.pta-kpi-primary strong { color:#fff; }
+.pta-kpi small { color:#8796a8; font-size:.75rem; }
+.pta-kpi-primary small { color:#d7e8f8; }
+.pta-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin-bottom:1rem; }
+.pta-grid-main { grid-template-columns:minmax(0,1.55fr) minmax(300px,.9fr); }
+.pta-panel { min-width:0; padding:1.35rem 1.45rem; }
+.pta-panel-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; margin-bottom:1.1rem; }
+.pta-panel-heading h2 { margin:.25rem 0 0; color:var(--pta-ink); font-size:1.12rem; font-weight:760; letter-spacing:-.02em; }
+.pta-section-kicker { color:#8292a5; font-size:.66rem; font-weight:800; letter-spacing:.12em; }
+.pta-panel-caption { color:#8997a8; font-size:.72rem; }
+.pta-trend { display:flex; align-items:stretch; gap:5px; height:220px; padding:.4rem .1rem 0; overflow-x:auto; border-bottom:1px solid var(--pta-line); }
+.pta-trend-col { display:flex; flex:1 0 22px; flex-direction:column; align-items:center; justify-content:flex-end; min-width:18px; color:#91a0b1; }
+.pta-trend-col strong { min-height:1rem; margin-bottom:.3rem; color:#60738a; font-size:.65rem; }
+.pta-trend-bar { width:min(70%,24px); min-height:2px; border-radius:7px 7px 2px 2px; background:linear-gradient(180deg,#68a9e9,#347bc5); box-shadow:0 4px 10px rgba(52,123,197,.17); }
+.pta-trend-col small { margin:.45rem 0 -.15rem; color:#8b99aa; font-size:.62rem; white-space:nowrap; }
+.pta-bars { display:grid; gap:1rem; }
+.pta-bar-row { min-width:0; }
+.pta-bar-label { display:flex; justify-content:space-between; gap:.8rem; margin-bottom:.42rem; color:#52657a; font-size:.8rem; }
+.pta-bar-label span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.pta-bar-label strong { color:#283e55; font-weight:750; }
+.pta-bar-track { height:8px; overflow:hidden; border-radius:99px; background:#eff3f7; }
+.pta-bar-fill { display:block; height:100%; border-radius:99px; background:linear-gradient(90deg,#347bc5,#66a6e5); }
+.pta-tone-1 { background:linear-gradient(90deg,#20a879,#5bd0a4); }
+.pta-tone-2 { background:linear-gradient(90deg,#7659d6,#a28de9); }
+.pta-tone-3 { background:linear-gradient(90deg,#e39b45,#f1c374); }
+.pta-tone-4 { background:linear-gradient(90deg,#d65b72,#f18b9a); }
+.pta-table-wrap { width:100%; overflow:auto; }
+.pta-table { width:100%; min-width:550px; border-collapse:collapse; color:#40566d; font-size:.77rem; }
+.pta-table th { padding:.7rem .6rem; border-bottom:1px solid var(--pta-line); color:#8190a1; font-size:.65rem; font-weight:800; letter-spacing:.08em; text-align:left; text-transform:uppercase; white-space:nowrap; }
+.pta-table td { padding:.75rem .6rem; border-bottom:1px solid #eff2f6; vertical-align:middle; white-space:nowrap; }
+.pta-table tbody tr:last-child td { border-bottom:0; }
+.pta-subject { max-width:300px; overflow:hidden; text-overflow:ellipsis; }
+.pta-priority,.pta-status { display:inline-flex; align-items:center; padding:.25rem .55rem; border-radius:99px; background:#f0f3f7; color:#5f7083; font-size:.68rem; font-weight:750; }
+.pta-priority-urgent { background:#fff0f0; color:#c6414b; }
+.pta-priority-high { background:#fff5e8; color:#bb741d; }
+.pta-priority-medium { background:#edf5ff; color:#3473b5; }
+.pta-priority-low { background:#edf8f2; color:#34835d; }
+.pta-cell-alert { color:#c6414b!important; font-weight:800; }
+.pta-note { margin-top:.8rem; color:#8997a8; font-size:.7rem; }
+.pta-note .fa { margin-right:.35rem; color:#347bc5; }
+.pta-view-all { color:#347bc5; font-size:.76rem; font-weight:700; }
+.pta-view-all:hover { color:#205b99; text-decoration:none; }
+.pta-view-all .fa { margin-left:.25rem; }
+.pta-loading,.pta-error { padding:2rem; border-radius:16px; background:#fff; color:#64788d; text-align:center; }
+.pta-error { border:1px solid #f3d3d4; color:#b33d48; }
+.pta-spinner { display:inline-block; width:16px; height:16px; margin-right:.45rem; border:2px solid #cbd9e8; border-top-color:#347bc5; border-radius:50%; vertical-align:-3px; animation:pta-spin .8s linear infinite; }
+.pta-empty,.pta-empty-inline,.pta-empty-cell { padding:1.25rem; color:#8b99aa; font-size:.8rem; text-align:center; }
+.pta-empty-cell { padding:1rem!important; }
+@keyframes pta-spin { to { transform:rotate(360deg); } }
+@media(max-width:1000px) {
+	.pta-hero { align-items:flex-start; flex-direction:column; }
+	.pta-filters { width:100%; }
+	.pta-filters label { flex:1; }
+	.pta-filters input { width:100%; min-width:0; }
+	.pta-kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:700px) {
+	.prime-ticket-analytics-page { padding:.5rem; }
+	.pta-hero { gap:1.25rem; padding:1.35rem; border-radius:18px; }
+	.pta-hero h1 { font-size:2rem; }
+	.pta-filters { display:grid; grid-template-columns:1fr 1fr; }
+	.pta-refresh { grid-column:1 / -1; width:100%; }
+	.pta-kpis,.pta-grid,.pta-grid-main { grid-template-columns:1fr; }
+	.pta-kpi { min-height:130px; }
+	.pta-panel { padding:1.05rem; border-radius:15px; }
+	.pta-trend { height:180px; }
+	.pta-meta { align-items:flex-start; flex-direction:column; }
+}
+@media(prefers-reduced-motion:reduce) {
+	.prime-ticket-analytics-page * { animation-duration:.01ms!important; scroll-behavior:auto!important; }
+}
