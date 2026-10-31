@@ -86,7 +86,7 @@ erDiagram
     }
 ```
 
-The settings, SLA, workflow status, escalation, reply, and category-assignment rows are child tables. They are edited through their parent forms rather than opened as standalone workspace items. In v2, SLA response policies and the default response hours calculate deadlines when a ticket is created; the first operator reply is timestamped. Breach status, alerts, and escalation remain future work.
+New Prime Ticket Category records use the entered category name as their record name. New Prime Ticket Operator records use the linked Frappe user's full name; both names must be unique. Existing record IDs are not changed by migration.\n\nThe settings, SLA, workflow status, escalation, reply, and category-assignment rows are child tables. They are edited through their parent forms rather than opened as standalone workspace items. In v2, SLA response policies and the default response hours calculate deadlines when a ticket is created; the first operator reply is timestamped. Breach status, alerts, and escalation remain future work.
 
 ## Install
 
