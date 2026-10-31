@@ -1,6 +1,6 @@
 # Prime Ticket Analytics Guide
 
-Open **Ticket Analytics** from the Prime Ticket workspace. The page is available to **Ticket Operators** and **System Managers**.
+Open **Ticket Analytics** from the Prime Ticket workspace. The page is available to **Ticket Operators** and **System Managers**. The dashboard preview in the repository README uses illustrative sample data and contains no site-specific information. For downloadable tabular analysis, see the [SQL Reports Guide](prime-ticket-sql-reports.md).
 
 ## Filter the reports
 
