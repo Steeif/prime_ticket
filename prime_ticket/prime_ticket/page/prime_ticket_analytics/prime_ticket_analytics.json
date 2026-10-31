@@ -1,0 +1,14 @@
+{
+  "doctype": "Page",
+  "name": "prime-ticket-analytics",
+  "page_name": "prime-ticket-analytics",
+  "title": "Ticket Analytics",
+  "icon": "chart-line",
+  "module": "Prime Ticket",
+  "standard": "Yes",
+  "system_page": 0,
+  "roles": [
+    {"doctype": "Has Role", "role": "System Manager"},
+    {"doctype": "Has Role", "role": "Ticket Operator"}
+  ]
+}
