@@ -5,7 +5,7 @@
 
 **A straightforward support-ticket app for Frappe and ERPNext.** Customers submit tickets from a sign-in protected web form; support operators triage requests, reply, and keep customers informed with email notifications.
 
-**Current app version: 2.0.0**
+**Current app version: 2.1.0**
 
 [Install](#install) · [How it works](#how-it-works) · [Access and authentication](#access-and-authentication) · [First-time setup](#first-time-setup)
 
@@ -21,7 +21,11 @@ Tickets use the `TICK-00001` naming format. Each ticket records its category, pr
 
 The customer page presents a branded ticket form and a matching, responsive request list. Customer instructions are in the [Prime Ticket Customer Guide](prime_ticket/docs/prime-ticket-user-guide.md).
 
-The Prime Ticket workspace includes **Ticket Analytics** for date-filtered ticket volume, status and category mix, response SLA performance, and the oldest open tickets. See the [Prime Ticket Analytics Guide](prime_ticket/docs/prime-ticket-analytics.md) for metric definitions and access details.
+The Prime Ticket workspace includes **Ticket Analytics** for date-filtered ticket volume, status and category mix, response SLA performance, and the oldest open tickets. The dashboard preview below uses illustrative sample data only.
+
+![Ticket Analytics dashboard preview with sample data](prime_ticket/docs/images/ticket-analytics-preview.svg)
+
+The workspace also includes three SQL Query Reports: **Ticket Volume by Category**, **First Response SLA by Priority**, and **Open Ticket Aging**. See the [Prime Ticket Analytics Guide](prime_ticket/docs/prime-ticket-analytics.md) and [SQL Reports Guide](prime_ticket/docs/prime-ticket-sql-reports.md) for metric definitions, filters, and access details.
 
 ## How it works
 
