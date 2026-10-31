@@ -19,7 +19,9 @@
 
 Tickets use the `TICK-00001` naming format. Each ticket records its category, priority, status, description, raiser, replies, and optional resolution notes. With SLA tracking enabled, v2 calculates a read-only first-response deadline for new tickets from the matching priority policy or the default response hours, records the first operator reply, and calculates a resolution deadline when a matching policy exists.
 
-The customer page presents a branded ticket form and a matching, responsive request list. Customer instructions are in the [Prime Ticket Customer Guide](prime_ticket/docs/prime-ticket-user-guide.md).\n\n## How it works
+The customer page presents a branded ticket form and a matching, responsive request list. Customer instructions are in the [Prime Ticket Customer Guide](prime_ticket/docs/prime-ticket-user-guide.md).
+
+## How it works
 
 ```mermaid
 flowchart LR
