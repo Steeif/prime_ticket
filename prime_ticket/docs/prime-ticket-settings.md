@@ -26,7 +26,7 @@ Settings is a single-document form for site-wide Prime Ticket configuration. You
 | --- | --- | --- |
 | Support Operators | A child table selecting Prime Ticket Operator records. | Stores selected operators in settings; it does not assign tickets or grant roles. Assign **Ticket Operator** to users separately in Frappe **User**. |
 
-The **Prime Ticket Operator** DocType stores a linked User, contact details, active flag, supported categories, capacity, skill, working hours, timezone, availability, and capability flags. The present ticket controller does not use these values to route work or enforce capabilities.
+The **Prime Ticket Operator** DocType stores a linked User, contact details, active flag, supported categories, capacity, skill, working hours, timezone, availability, and capability flags. New operator records use the linked Frappe user's full name as the document name; operator names must be unique. The present ticket controller does not use these values to route work or enforce capabilities.
 
 ## Workflow Configuration
 
@@ -37,9 +37,11 @@ The **Prime Ticket Operator** DocType stores a linked User, contact details, act
 | Auto-Close Resolved Tickets (Days) | Intended delay before closing a resolved ticket; defaults to 7 days. | No scheduled auto-close job currently reads this value. |
 | Auto-Escalate Unresponded Tickets (Days) | Intended delay before escalation; defaults to 3 days. | No scheduled escalation job currently reads this value. |
 
+New operator and category document names follow their linked or entered names after migration. Existing records keep their current IDs; migration does not rename them.
+
 ## Ticket Categories
 
-**Categories** selects Prime Ticket Category records in a settings child table. Prime Ticket Category stores a name, description, color, icon class, and active flag. The customer web form currently has its own fixed category choices (Question, Bug Report, Feature Request, How-To, Other); the settings selection does not currently populate those choices.
+**Categories** selects Prime Ticket Category records in a settings child table. Prime Ticket Category stores a name, description, color, icon class, and active flag. New category records use the entered Category Name as the document name. The customer web form currently has its own fixed category choices (Question, Bug Report, Feature Request, How-To, Other); the settings selection does not currently populate those choices.
 
 ## SLA Policies
 
