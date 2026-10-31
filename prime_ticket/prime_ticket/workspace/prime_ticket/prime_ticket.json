@@ -136,6 +136,24 @@
       "label": "Ticket Analytics",
       "type": "URL",
       "url": "/app/prime-ticket-analytics"
+    },
+    {
+      "color": "Blue",
+      "label": "Ticket Volume by Category",
+      "type": "URL",
+      "url": "/app/query-report/Ticket%20Volume%20by%20Category"
+    },
+    {
+      "color": "Blue",
+      "label": "First Response SLA by Priority",
+      "type": "URL",
+      "url": "/app/query-report/First%20Response%20SLA%20by%20Priority"
+    },
+    {
+      "color": "Blue",
+      "label": "Open Ticket Aging",
+      "type": "URL",
+      "url": "/app/query-report/Open%20Ticket%20Aging"
     }
   ],
   "title": "Prime Ticket",
