@@ -108,7 +108,7 @@ The migration command syncs DocTypes and runs the app's metadata repair patch on
 2. Configure an outgoing email account in Frappe so ticket notifications can be delivered.
 3. Share `https://your-site.example/new-ticket` with users who should submit tickets.
 
-The app creates both roles automatically during installation and migration. It also creates these notifications idempotently:
+The app creates both roles automatically during installation and migration. It also seeds the eight standard Prime Ticket Category records from the installation defaults when they are missing; existing categories are left unchanged. The customer web form's category choices remain separately configured in its Web Form definition. It also creates these notifications idempotently:
 
 | Event | Recipient |
 | --- | --- |
