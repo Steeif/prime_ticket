@@ -5,7 +5,7 @@
 
 **A straightforward support-ticket app for Frappe and ERPNext.** Customers submit tickets from a sign-in protected web form; support operators triage requests, reply, and keep customers informed with email notifications.
 
-**Current app version: 1.2.0**
+**Current app version: 2.0.0**
 
 [Install](#install) · [How it works](#how-it-works) · [Access and authentication](#access-and-authentication) · [First-time setup](#first-time-setup)
 
