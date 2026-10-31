@@ -403,7 +403,8 @@
 
 /* Refined customer form: stronger contrast, tighter rhythm, and a practical editor height */
 .web-form-header .web-form-introduction,
-.web-form-head .web-form-introduction {
+.web-form-head .web-form-introduction,
+.web-form-header p {
 	color: #f1f6fd !important;
 	font-size: 1.05rem;
 	line-height: 1.65;
