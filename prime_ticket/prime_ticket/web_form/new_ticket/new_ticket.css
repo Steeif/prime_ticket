@@ -1,32 +1,65 @@
-/* Prime Ticket customer intake form */
+/* Prime Ticket customer pages: intake form and request list */
+[data-doctype="Web Form"] {
+	background: #f3f6fb;
+}
+
+[data-doctype="Web Form"] .page_content {
+	max-width: 1120px;
+	padding-top: 1.5rem;
+	padding-bottom: 3.5rem;
+}
+
 .web-form-banner-image {
 	width: auto;
 	max-width: min(260px, 72vw);
-	max-height: 96px;
+	max-height: 88px;
 	object-fit: contain;
 	display: block;
-	margin: 1.75rem auto 0.5rem;
+	margin: 1.25rem auto 0.25rem;
 }
 
 .web-form-container {
 	width: min(100% - 2rem, 900px);
 	margin: 0 auto;
-	padding: 0 0 3rem;
+	padding: 0 0 1rem;
 }
 
 .web-form-header {
-	margin: 1.5rem auto 1.25rem;
-	border: 1px solid #dfe8f3;
-	border-radius: 24px;
+	margin: 1rem auto 1rem;
+	padding: 0;
+	border: 0;
+	border-radius: 22px;
 	background:
-		radial-gradient(circle at 92% 8%, rgba(107, 167, 255, 0.22), transparent 30%),
-		linear-gradient(135deg, #eef6ff 0%, #f7f4ff 100%);
+		radial-gradient(ellipse at 86% 4%, rgba(116, 153, 255, 0.34), transparent 34%),
+		linear-gradient(120deg, #10273f 0%, #173e63 58%, #405b9d 100%);
 	overflow: hidden;
+	box-shadow: 0 18px 42px rgba(27, 49, 78, 0.17);
+}
+
+.web-form-header .breadcrumb-container {
+	padding: 1.25rem 2rem 0;
+}
+
+.web-form-header .breadcrumb,
+.web-form-header .breadcrumb a,
+.web-form-header .breadcrumb-item.active {
+	color: rgba(238, 245, 255, 0.82);
 }
 
 .web-form-head {
-	padding: clamp(1.75rem, 5vw, 3.25rem);
-	text-align: center;
+	position: relative;
+	padding: clamp(1.75rem, 5vw, 3rem);
+	text-align: left;
+}
+
+.web-form-head::before {
+	content: "PRIME TICKET  /  SUPPORT DESK";
+	display: block;
+	margin-bottom: 0.85rem;
+	color: #b7d4fa;
+	font-size: 0.75rem;
+	font-weight: 750;
+	letter-spacing: 0.15em;
 }
 
 .web-form-head .title {
@@ -36,27 +69,35 @@
 
 .web-form-title h1 {
 	margin: 0;
-	color: #17324d;
-	font-size: clamp(2rem, 5vw, 3rem);
-	font-weight: 750;
-	letter-spacing: -0.04em;
-	line-height: 1.12;
+	color: #fff;
+	font-size: clamp(2.1rem, 5vw, 3.35rem);
+	font-weight: 760;
+	letter-spacing: -0.045em;
+	line-height: 1.06;
+}
+
+.web-form-head .indicator-pill {
+	margin-top: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.22);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.12);
+	color: #eef6ff;
 }
 
 .web-form-introduction {
-	max-width: 590px;
-	margin: 1rem auto 0;
-	color: #52667b;
-	font-size: 1.05rem;
+	max-width: 620px;
+	margin: 1rem 0 0;
+	color: #d7e4f3;
+	font-size: 1.06rem;
 	line-height: 1.7;
 }
 
 .web-form {
 	padding: clamp(1.25rem, 4vw, 2.5rem);
-	border: 1px solid #e2e8f0;
+	border: 1px solid #e0e7f0;
 	border-radius: 22px;
 	background: #fff;
-	box-shadow: 0 18px 48px rgba(31, 57, 84, 0.09);
+	box-shadow: 0 14px 38px rgba(31, 57, 84, 0.08);
 }
 
 .web-form-body {
@@ -71,7 +112,7 @@
 .web-form label,
 .web-form .control-label {
 	margin-bottom: 0.5rem;
-	color: #243b53;
+	color: #263d55;
 	font-size: 0.94rem;
 	font-weight: 650;
 }
@@ -80,12 +121,12 @@
 .web-form select,
 .web-form input[type="text"],
 .web-form textarea {
-	min-height: 48px;
-	padding: 0.75rem 0.9rem;
+	min-height: 50px;
+	padding: 0.78rem 0.95rem;
 	border: 1px solid #d5dfeb;
 	border-radius: 12px;
-	background-color: #fbfdff;
-	color: #1e3449;
+	background-color: #f8fafd;
+	color: #1d3348;
 	box-shadow: none;
 	transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
 }
@@ -101,9 +142,9 @@
 .web-form input[type="text"]:focus,
 .web-form textarea:focus,
 .web-form .ql-container:focus-within {
-	border-color: #4385d1;
+	border-color: #4b83cb;
 	background-color: #fff;
-	box-shadow: 0 0 0 4px rgba(67, 133, 209, 0.13);
+	box-shadow: 0 0 0 4px rgba(75, 131, 203, 0.13);
 	outline: none;
 }
 
@@ -127,16 +168,16 @@
 
 .web-form .submit-btn,
 .web-form .discard-btn {
-	min-height: 46px;
-	padding: 0.7rem 1.25rem;
-	border-radius: 11px;
-	font-size: 0.95rem;
-	font-weight: 650;
+	min-height: 48px;
+	padding: 0.72rem 1.35rem;
+	border-radius: 12px;
+	font-size: 0.96rem;
+	font-weight: 700;
 }
 
 .web-form .submit-btn {
-	border-color: #2468b1;
-	background: linear-gradient(135deg, #2e7ac6, #245da3);
+	border-color: #2b67ad;
+	background: linear-gradient(135deg, #347bc5, #245a9b);
 	box-shadow: 0 7px 16px rgba(36, 104, 177, 0.2);
 }
 
@@ -150,6 +191,109 @@
 	border-color: #d8e1eb;
 	background: #fff;
 	color: #43566a;
+}
+
+/* Existing ticket list */
+.web-list-container {
+	min-height: 0;
+	margin: 1rem auto;
+	padding: clamp(1.1rem, 3vw, 2rem);
+	border: 1px solid #e0e7f0;
+	border-radius: 22px;
+	background: #fff;
+	box-shadow: 0 14px 38px rgba(31, 57, 84, 0.08);
+}
+
+.web-list-header {
+	align-items: center;
+	margin: 0 0 1.25rem;
+	padding: 0 0 1.25rem;
+	border-bottom: 1px solid #e9eef5;
+}
+
+.web-list-title h1 {
+	margin: 0;
+	color: #17324d;
+	font-size: clamp(1.8rem, 4vw, 2.4rem);
+	font-weight: 750;
+	letter-spacing: -0.04em;
+}
+
+.web-list-actions .button-new {
+	min-height: 44px;
+	padding: 0.7rem 1.2rem;
+	border: 0;
+	border-radius: 12px;
+	background: linear-gradient(135deg, #347bc5, #245a9b);
+	box-shadow: 0 7px 16px rgba(36, 104, 177, 0.18);
+	font-weight: 700;
+}
+
+.web-list-table {
+	overflow-x: auto;
+	border-radius: 12px;
+}
+
+.web-list-table .table {
+	margin-bottom: 0;
+	border: 0;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+.web-list-table .table thead th {
+	padding: 0.9rem 1rem;
+	border: 0;
+	background: #f5f8fc;
+	color: #5b6f84;
+	font-size: 0.78rem;
+	font-weight: 750;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.web-list-table .table thead th:first-child {
+	border-radius: 10px 0 0 10px;
+}
+
+.web-list-table .table thead th:last-child {
+	border-radius: 0 10px 10px 0;
+}
+
+.web-list-table .table tbody tr {
+	transition: background-color 140ms ease;
+}
+
+.web-list-table .table tbody tr:hover {
+	background: #f6f9fd;
+}
+
+.web-list-table .table tbody td {
+	max-width: 240px;
+	padding: 1rem;
+	border-top: 1px solid #edf1f6;
+	color: #263d55;
+	font-size: 0.94rem;
+	vertical-align: middle;
+}
+
+.web-list-table .table tbody tr:last-child td {
+	border-bottom: 1px solid #edf1f6;
+}
+
+.web-list-table .table tbody td a {
+	color: #245f9f;
+	font-weight: 650;
+}
+
+.web-list-table .table input[type="checkbox"] {
+	accent-color: #2d6fb6;
+}
+
+.web-list-footer {
+	padding-top: 1rem;
+	color: #64788d;
 }
 
 .success-page {
@@ -175,17 +319,30 @@
 }
 
 @media (max-width: 600px) {
+	[data-doctype="Web Form"] .page_content {
+		padding-top: 0.75rem;
+		padding-bottom: 2rem;
+	}
+
 	.web-form-container {
 		width: min(100% - 1.25rem, 900px);
 	}
 
-	.web-form-header {
-		margin-top: 1rem;
+	.web-form-header,
+	.web-list-container {
 		border-radius: 18px;
 	}
 
+	.web-form-header {
+		margin-top: 0.5rem;
+	}
+
+	.web-form-header .breadcrumb-container {
+		padding: 1rem 1.2rem 0;
+	}
+
 	.web-form-head {
-		padding: 1.75rem 1.2rem;
+		padding: 1.6rem 1.25rem 1.8rem;
 	}
 
 	.web-form {
@@ -207,6 +364,28 @@
 		flex: 1;
 	}
 
+	.web-list-container {
+		padding: 1rem;
+	}
+
+	.web-list-header {
+		align-items: flex-start;
+	}
+
+	.web-list-actions {
+		width: 100%;
+		justify-content: flex-start !important;
+	}
+
+	.web-list-actions .button-new {
+		width: 100%;
+	}
+
+	.web-list-table .table thead th,
+	.web-list-table .table tbody td {
+		padding: 0.75rem 0.8rem;
+	}
+
 	.success-page {
 		margin: 2rem auto;
 		padding: 1.5rem 1.1rem;
@@ -215,10 +394,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.web-form .form-control,
-	.web-form select,
-	.web-form input,
-	.web-form textarea {
-		transition: none;
+	.web-form *,
+	.web-list-table * {
+		transition: none !important;
 	}
 }
