@@ -2,10 +2,62 @@ import frappe
 
 ROLES = ["Ticket Operator", "Ticket User"]
 
+DEFAULT_CATEGORIES = [
+    {
+        "name_field": "Other / Miscellaneous",
+        "description": "Uncategorized support requests, special administrative tasks, or unique operational feedback.",
+        "color": "#918e8e",
+        "icon": "fa fa-folder",
+    },
+    {
+        "name_field": "New Requests & Features",
+        "description": "Suggestions for system enhancements, new custom reports, workflow additions, or feature requests from store staff.",
+        "color": "#449CF0",
+        "icon": "fa fa-lightbulb",
+    },
+    {
+        "name_field": "General Inquiries",
+        "description": "General store operations questions, staff scheduling inquiries, internal announcements, or policy clarifications.",
+        "color": "#CB2929",
+        "icon": "fa fa-info-circle",
+    },
+    {
+        "name_field": "Technical Issues",
+        "description": "System downtime, login failures, permission errors, synchronization delays, or application bugs.",
+        "color": "#4463F0",
+        "icon": "fa fa-info-circle",
+    },
+    {
+        "name_field": "Pricing & Promotions",
+        "description": "Inaccurate item prices, promotional discount applications, markdown errors, and coupon validation.",
+        "color": "#761ACB",
+        "icon": "fa fa-tags",
+    },
+    {
+        "name_field": "Customer Service & Returns",
+        "description": "Handling customer complaints, exchange policies, loyalty program issues, and refund processing.",
+        "color": "#EC864B",
+        "icon": "fa fa-undo",
+    },
+    {
+        "name_field": "Inventory & Stock",
+        "description": "Discrepancies in stock levels, barcode scanning failures, stock transfers, and warehouse adjustments.",
+        "color": "#29CD42",
+        "icon": "fa fa-boxes",
+    },
+    {
+        "name_field": "Sales & POS Support",
+        "description": "Issues related to daily register operations, checkout transactions, customer receipts, and point-of-sale terminal software.",
+        "color": "#4463F0",
+        "icon": "fa fa-cash-register",
+    },
+]
+
 
 def after_install():
     """Runs once when the app is installed on a site."""
     create_roles()
+    create_default_categories()
     create_notifications()
     frappe.db.commit()
 
@@ -99,3 +151,19 @@ def create_notifications():
             doc = frappe.get_doc(notification)
             doc.insert(ignore_permissions=True)
             frappe.logger().info(f"prime_ticket: created notification {notification['name']}")
+
+
+def create_default_categories():
+    """Add the built-in categories when missing; leave existing records untouched."""
+    for category in DEFAULT_CATEGORIES:
+        category_name = category["name_field"]
+        if frappe.db.exists("Prime Ticket Category", category_name):
+            continue
+
+        doc = frappe.get_doc({
+            "doctype": "Prime Ticket Category",
+            **category,
+            "is_active": 1,
+        })
+        doc.insert(ignore_permissions=True)
+        frappe.logger().info(f"prime_ticket: created default category {category_name}")
