@@ -4,6 +4,10 @@
 
 Open **Submit a Ticket** from the Prime Ticket workspace to see your existing requests. Select a request row to review it, or choose **New** to open a fresh request.
 
+## The request form
+
+The customer form uses a responsive two-part layout: a branded introduction followed by a clear, compact request form. Required fields are marked, the description editor has a practical starting height, and the form remains usable on mobile screens. If styling looks outdated after an app update, run the site migration, clear the Frappe cache, and hard-refresh the page.
+
 ## Submit a support request
 
 1. Sign in to your organization's Frappe or ERPNext site.
