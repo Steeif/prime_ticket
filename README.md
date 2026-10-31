@@ -152,7 +152,7 @@ The **Prime Ticket** workspace provides four standalone DocType entries:
 - Prime Ticket Operator
 - Prime Ticket Settings
 
-Ticket shortcuts and configuration links are grouped into separate workspace cards. Child tables are available from their parent forms, not listed as standalone links.
+Ticket shortcuts and configuration links are grouped into separate workspace cards. The **Ticket Analytics** shortcut opens the date-filtered volume, status, category, SLA, and backlog dashboard. Child tables are available from their parent forms, not listed as standalone links.
 
 The **Settings Guide** workspace shortcut opens the in-app documentation at `/prime-ticket-settings-guide`; read it in Arabic at `/prime-ticket-settings-guide-ar`. The English source is [prime-ticket-settings.md](prime_ticket/docs/prime-ticket-settings.md), and the Arabic source is [prime-ticket-settings-ar.md](prime_ticket/docs/prime-ticket-settings-ar.md). The configured Application Logo is shown on both guide pages and the Submit a Ticket web form.
 
