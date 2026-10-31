@@ -21,6 +21,8 @@ Tickets use the `TICK-00001` naming format. Each ticket records its category, pr
 
 The customer page presents a branded ticket form and a matching, responsive request list. Customer instructions are in the [Prime Ticket Customer Guide](prime_ticket/docs/prime-ticket-user-guide.md).
 
+The Prime Ticket workspace includes **Ticket Analytics** for date-filtered ticket volume, status and category mix, response SLA performance, and the oldest open tickets. See the [Prime Ticket Analytics Guide](prime_ticket/docs/prime-ticket-analytics.md) for metric definitions and access details.
+
 ## How it works
 
 ```mermaid
