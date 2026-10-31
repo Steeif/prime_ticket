@@ -17,6 +17,8 @@
   "email",
   "opened_at",
   "response_due_at",
+  "first_response_at",
+  "resolution_due_at",
   "resolved_at",
   "resolution_section",
   "resolution",
@@ -99,6 +101,18 @@
    "fieldname": "response_due_at",
    "fieldtype": "Datetime",
    "label": "First Response Due At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "first_response_at",
+   "fieldtype": "Datetime",
+   "label": "First Response At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resolution_due_at",
+   "fieldtype": "Datetime",
+   "label": "Resolution Due At",
    "read_only": 1
   },
   {
