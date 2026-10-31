@@ -111,6 +111,7 @@ frappe.pages["prime-ticket-analytics"].on_page_load = function (wrapper) {
 				const backlog = data.backlog || {};
 				root.find('[data-kpi="total"]').text(number(period.total).toLocaleString());
 				root.find('[data-kpi="open"]').text(number(backlog.open_count).toLocaleString());
+				root.find('[data-kpi-note="backlog"]').text(__(`${number(backlog.response_overdue)} first response late · ${number(backlog.resolution_overdue)} resolution late`));
 				const eligible = number(period.response_met) + number(period.response_breached);
 				const rate = eligible ? Math.round((number(period.response_met) / eligible) * 100) : null;
 				root.find('[data-kpi="sla"]').text(rate == null ? "—" : rate + "%");
