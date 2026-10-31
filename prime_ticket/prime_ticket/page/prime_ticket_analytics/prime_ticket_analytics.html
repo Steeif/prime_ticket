@@ -1,0 +1,60 @@
+<div class="pta-shell">
+  <header class="pta-hero">
+    <div class="pta-hero-copy">
+      <div class="pta-eyebrow"><span class="pta-pulse"></span> PRIME TICKET · OPERATIONS INTELLIGENCE</div>
+      <h1>Ticket Analytics</h1>
+      <p>See demand, response performance, and the work that needs attention.</p>
+    </div>
+    <div class="pta-filters">
+      <label>From <input type="date" data-filter="from"></label>
+      <label>To <input type="date" data-filter="to"></label>
+      <button class="btn btn-primary pta-refresh" type="button"><span class="fa fa-refresh"></span> Refresh</button>
+    </div>
+  </header>
+
+  <div class="pta-error" role="alert" hidden></div>
+  <div class="pta-loading"><span class="pta-spinner"></span> Loading your ticket insights…</div>
+  <div class="pta-content" hidden>
+    <div class="pta-meta"><span data-range></span><span>Updated <time data-updated></time></span></div>
+
+    <section class="pta-kpis" aria-label="Key metrics">
+      <article class="pta-kpi pta-kpi-primary"><span class="pta-kpi-icon fa fa-ticket"></span><span class="pta-kpi-label">Tickets received</span><strong data-kpi="total">—</strong><small>Within selected dates</small></article>
+      <article class="pta-kpi"><span class="pta-kpi-icon fa fa-inbox"></span><span class="pta-kpi-label">Open backlog</span><strong data-kpi="open">—</strong><small>Currently awaiting completion</small></article>
+      <article class="pta-kpi"><span class="pta-kpi-icon fa fa-clock-o"></span><span class="pta-kpi-label">First response SLA</span><strong data-kpi="sla">—</strong><small data-kpi-note="sla">No SLA deadlines in this period</small></article>
+      <article class="pta-kpi"><span class="pta-kpi-icon fa fa-hourglass-half"></span><span class="pta-kpi-label">Average first response</span><strong data-kpi="response">—</strong><small>For tickets with a first reply</small></article>
+    </section>
+
+    <section class="pta-grid pta-grid-main">
+      <article class="pta-panel pta-panel-trend">
+        <div class="pta-panel-heading"><div><span class="pta-section-kicker">VOLUME</span><h2>Incoming tickets</h2></div><span class="pta-panel-caption">By day</span></div>
+        <div class="pta-trend" data-chart="trend"></div>
+      </article>
+      <article class="pta-panel">
+        <div class="pta-panel-heading"><div><span class="pta-section-kicker">CURRENT WORK</span><h2>Open ticket status</h2></div></div>
+        <div class="pta-bars" data-chart="statuses"></div>
+      </article>
+    </section>
+
+    <section class="pta-grid">
+      <article class="pta-panel">
+        <div class="pta-panel-heading"><div><span class="pta-section-kicker">WHERE DEMAND COMES FROM</span><h2>Categories</h2></div></div>
+        <div class="pta-bars" data-chart="categories"></div>
+      </article>
+      <article class="pta-panel">
+        <div class="pta-panel-heading"><div><span class="pta-section-kicker">FIRST RESPONSE</span><h2>SLA by priority</h2></div><span class="pta-panel-caption">Tickets created in range</span></div>
+        <div class="pta-table-wrap">
+          <table class="pta-table"><thead><tr><th>Priority</th><th>Tickets</th><th>Met</th><th>Missed</th><th>Avg. hours</th></tr></thead><tbody data-table="sla"></tbody></table>
+        </div>
+        <div class="pta-note"><span class="fa fa-info-circle"></span> SLA results use the response deadlines saved on each ticket.</div>
+      </article>
+    </section>
+
+    <section class="pta-panel pta-panel-backlog">
+      <div class="pta-panel-heading"><div><span class="pta-section-kicker">NEEDS ATTENTION</span><h2>Oldest open tickets</h2></div><a class="pta-view-all" href="/app/support-ticket">View all tickets <span class="fa fa-arrow-right"></span></a></div>
+      <div class="pta-table-wrap">
+        <table class="pta-table"><thead><tr><th>Ticket</th><th>Subject</th><th>Category</th><th>Priority</th><th>Status</th><th>Opened</th><th>Age</th></tr></thead><tbody data-table="oldest"></tbody></table>
+      </div>
+      <div class="pta-empty" data-empty="oldest" hidden>No open tickets need attention.</div>
+    </section>
+  </div>
+</div>
