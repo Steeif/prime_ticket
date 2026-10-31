@@ -6,7 +6,7 @@ Open **Prime Ticket Settings** from the Prime Ticket workspace. The guide is als
 
 Settings is a single-document form for site-wide Prime Ticket configuration. You need the **System Manager** role to edit it. Save the form after making changes.
 
-> **Current implementation note:** the settings fields below are present in the form, but most are not read by the app's current ticket-handling code. In particular, assignment, SLA breach monitoring/alerts, custom workflow, automatic close/escalation, the notification switches, API token, webhook, and custom JSON fields do not currently change runtime behavior. The v2 first-response deadline calculation is active when SLA tracking is enabled. Treat these as stored configuration fields, not active features. The configured Application Logo is displayed on the Submit a Ticket form and this guide. Ticket emails currently come from Frappe Notification records created by the app's install/migrate routine.
+> **Current implementation note:** the settings fields below are present in the form, but most are not read by the app's current ticket-handling code. In particular, assignment, SLA breach monitoring/alerts, custom workflow, automatic close/escalation, the notification switches, API token, webhook, and custom JSON fields do not currently change runtime behavior. The v2 first-response deadline, first operator reply timestamp, and policy-based resolution deadline are active when SLA tracking is enabled. Treat these as stored configuration fields, not active features. The configured Application Logo is displayed on the Submit a Ticket form and this guide. Ticket emails currently come from Frappe Notification records created by the app's install/migrate routine.
 
 ## General Settings
 
@@ -17,7 +17,7 @@ Settings is a single-document form for site-wide Prime Ticket configuration. You
 | Enable Auto-Assignment of Tickets | Master switch intended to enable automatic ticket assignment. | No automatic assignment code currently reads this switch. |
 | Auto-Assignment Method | Intended selection: Round Robin, Least Busy, Same Category, or Random. | Only shown when auto-assignment is enabled; no method is currently applied. |
 | Enable Email Notifications | Intended master switch for ticket email notifications. | Does not enable or disable the Notification records created by the app. Manage those under Frappe **Notification**. |
-| Enable SLA Tracking | Enables the v2 first-response deadline calculation. | When enabled, a new ticket gets a read-only First Response Due At value using its priority policy, or the default response hours if no policy matches. It does not yet track actual replies, resolution deadlines, overdue status, or alerts. |
+| Enable SLA Tracking | Enables the v2 first-response deadline calculation. | When enabled, a new ticket gets a read-only First Response Due At value using its priority policy, or the default response hours if no policy matches. A matching policy also sets a read-only Resolution Due At value. The first reply by a Ticket Operator or System Manager is recorded as First Response At. Overdue status and alerts are not included yet. |
 | Default SLA Response Time (Hours) | Fallback first-response target; defaults to 24 hours. | Used for new tickets when SLA tracking is enabled and no priority policy matches. |
 
 ## Operators Management
@@ -43,7 +43,7 @@ The **Prime Ticket Operator** DocType stores a linked User, contact details, act
 
 ## SLA Policies
 
-Each **SLA Policy** child row stores a priority name, response-time target in hours, resolution-time target in hours, and optional color. Policies belong inside Prime Ticket Settings because this is a child table; do not open the SLA Policy DocType as a standalone list. When SLA tracking is enabled, the response target is used to calculate a new ticket's First Response Due At value. Resolution targets are still stored only; actual response tracking and breach alerts are not implemented yet.
+Each **SLA Policy** child row stores a priority name, response-time target in hours, resolution-time target in hours, and optional color. Policies belong inside Prime Ticket Settings because this is a child table; do not open the SLA Policy DocType as a standalone list. When SLA tracking is enabled, the response target is used to calculate a new ticket's First Response Due At value, with default response hours as fallback. A matching policy's resolution target calculates Resolution Due At. The first Ticket Operator or System Manager reply is recorded as First Response At. No matching priority policy means no resolution deadline. SLA breach status and alerts are not implemented yet.
 
 ## Notification Settings
 
@@ -85,7 +85,7 @@ Frappe must have an outgoing email account configured for email delivery. Existi
 - Support Ticket records the current user as the raiser and captures that user's email when available.
 - The app creates Frappe notifications for new tickets, tickets marked Resolved, tickets marked Waiting for Reply, and tickets marked Reopened.
 - Support Ticket's status choices are fixed in its DocType. The app tracks `resolved_at` when a ticket is marked Resolved and clears it when the ticket returns to an active status.
-- When SLA tracking is enabled, new tickets receive a read-only first-response deadline based on the matching priority policy or default response hours.
+- When SLA tracking is enabled, new tickets receive read-only response and (when a matching policy exists) resolution deadlines. The first operator reply is recorded for response-time review.
 
 To change active notification behavior, use Frappe **Notification**. To change the ticket form's category choices or status list, update the corresponding Support Ticket DocType definition and migrate the site.
 
