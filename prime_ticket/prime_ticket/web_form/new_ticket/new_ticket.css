@@ -1,9 +1,224 @@
+/* Prime Ticket customer intake form */
 .web-form-banner-image {
 	width: auto;
-	max-width: min(240px, 70vw);
-	max-height: 110px;
+	max-width: min(260px, 72vw);
+	max-height: 96px;
 	object-fit: contain;
 	display: block;
-	margin: 1.5rem auto 0;
+	margin: 1.75rem auto 0.5rem;
 }
 
+.web-form-container {
+	width: min(100% - 2rem, 900px);
+	margin: 0 auto;
+	padding: 0 0 3rem;
+}
+
+.web-form-header {
+	margin: 1.5rem auto 1.25rem;
+	border: 1px solid #dfe8f3;
+	border-radius: 24px;
+	background:
+		radial-gradient(circle at 92% 8%, rgba(107, 167, 255, 0.22), transparent 30%),
+		linear-gradient(135deg, #eef6ff 0%, #f7f4ff 100%);
+	overflow: hidden;
+}
+
+.web-form-head {
+	padding: clamp(1.75rem, 5vw, 3.25rem);
+	text-align: center;
+}
+
+.web-form-head .title {
+	display: block;
+	margin: 0;
+}
+
+.web-form-title h1 {
+	margin: 0;
+	color: #17324d;
+	font-size: clamp(2rem, 5vw, 3rem);
+	font-weight: 750;
+	letter-spacing: -0.04em;
+	line-height: 1.12;
+}
+
+.web-form-introduction {
+	max-width: 590px;
+	margin: 1rem auto 0;
+	color: #52667b;
+	font-size: 1.05rem;
+	line-height: 1.7;
+}
+
+.web-form {
+	padding: clamp(1.25rem, 4vw, 2.5rem);
+	border: 1px solid #e2e8f0;
+	border-radius: 22px;
+	background: #fff;
+	box-shadow: 0 18px 48px rgba(31, 57, 84, 0.09);
+}
+
+.web-form-body {
+	padding: 0;
+}
+
+.web-form .form-group,
+.web-form .frappe-control {
+	margin-bottom: 1.25rem;
+}
+
+.web-form label,
+.web-form .control-label {
+	margin-bottom: 0.5rem;
+	color: #243b53;
+	font-size: 0.94rem;
+	font-weight: 650;
+}
+
+.web-form .form-control,
+.web-form select,
+.web-form input[type="text"],
+.web-form textarea {
+	min-height: 48px;
+	padding: 0.75rem 0.9rem;
+	border: 1px solid #d5dfeb;
+	border-radius: 12px;
+	background-color: #fbfdff;
+	color: #1e3449;
+	box-shadow: none;
+	transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.web-form textarea,
+.web-form .ql-editor {
+	min-height: 170px;
+	line-height: 1.65;
+}
+
+.web-form .form-control:focus,
+.web-form select:focus,
+.web-form input[type="text"]:focus,
+.web-form textarea:focus,
+.web-form .ql-container:focus-within {
+	border-color: #4385d1;
+	background-color: #fff;
+	box-shadow: 0 0 0 4px rgba(67, 133, 209, 0.13);
+	outline: none;
+}
+
+.web-form .web-form-footer {
+	margin-top: 0.5rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid #edf1f6;
+}
+
+.web-form .web-form-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.web-form .right-area {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+}
+
+.web-form .submit-btn,
+.web-form .discard-btn {
+	min-height: 46px;
+	padding: 0.7rem 1.25rem;
+	border-radius: 11px;
+	font-size: 0.95rem;
+	font-weight: 650;
+}
+
+.web-form .submit-btn {
+	border-color: #2468b1;
+	background: linear-gradient(135deg, #2e7ac6, #245da3);
+	box-shadow: 0 7px 16px rgba(36, 104, 177, 0.2);
+}
+
+.web-form .submit-btn:hover,
+.web-form .submit-btn:focus {
+	border-color: #174f8e;
+	background: #174f8e;
+}
+
+.web-form .discard-btn {
+	border-color: #d8e1eb;
+	background: #fff;
+	color: #43566a;
+}
+
+.success-page {
+	max-width: 680px;
+	margin: 4rem auto;
+	padding: 2.5rem;
+	border: 1px solid #dcebe4;
+	border-radius: 22px;
+	background: linear-gradient(145deg, #f2fbf6, #fff);
+	text-align: center;
+	box-shadow: 0 18px 48px rgba(31, 57, 84, 0.08);
+}
+
+.success-page .success-title {
+	color: #176444;
+	font-weight: 750;
+}
+
+.success-page .success-message {
+	color: #52667b;
+	font-size: 1.05rem;
+	line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+	.web-form-container {
+		width: min(100% - 1.25rem, 900px);
+	}
+
+	.web-form-header {
+		margin-top: 1rem;
+		border-radius: 18px;
+	}
+
+	.web-form-head {
+		padding: 1.75rem 1.2rem;
+	}
+
+	.web-form {
+		padding: 1.2rem;
+		border-radius: 18px;
+	}
+
+	.web-form .web-form-actions,
+	.web-form .right-area {
+		width: 100%;
+	}
+
+	.web-form .right-area {
+		justify-content: stretch;
+	}
+
+	.web-form .submit-btn,
+	.web-form .discard-btn {
+		flex: 1;
+	}
+
+	.success-page {
+		margin: 2rem auto;
+		padding: 1.5rem 1.1rem;
+		border-radius: 18px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.web-form .form-control,
+	.web-form select,
+	.web-form input,
+	.web-form textarea {
+		transition: none;
+	}
+}
