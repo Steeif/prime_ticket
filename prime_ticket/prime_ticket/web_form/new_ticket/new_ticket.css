@@ -487,3 +487,123 @@
 		min-height: 150px;
 	}
 }
+
+
+/* Final form polish for consistent controls and compact rich text input */
+[data-doctype="Web Form"] .web-form-container {
+	max-width: 900px;
+}
+
+[data-doctype="Web Form"] .web-form-header {
+	margin-bottom: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-doctype="Web Form"] .web-form-header p {
+	color: #f1f6fd !important;
+}
+
+[data-doctype="Web Form"] .web-form-head .web-form-introduction,
+[data-doctype="Web Form"] .web-form-head p {
+	max-width: 650px;
+	color: #edf4fc !important;
+	font-size: clamp(0.96rem, 1.4vw, 1.08rem);
+	line-height: 1.65;
+}
+
+[data-doctype="Web Form"] .web-form {
+	padding: clamp(1.15rem, 3.5vw, 2rem);
+	border-color: #e3eaf2;
+	border-radius: 20px;
+	box-shadow: 0 12px 34px rgba(24, 47, 74, 0.07);
+}
+
+[data-doctype="Web Form"] .web-form label,
+[data-doctype="Web Form"] .web-form .control-label {
+	margin-bottom: 0.42rem;
+	color: #263d55;
+	font-size: 0.9rem;
+	font-weight: 680;
+}
+
+[data-doctype="Web Form"] .web-form .form-control,
+[data-doctype="Web Form"] .web-form select,
+[data-doctype="Web Form"] .web-form input[type="text"] {
+	box-sizing: border-box;
+	height: 48px !important;
+	min-height: 48px !important;
+	padding: 0.65rem 0.9rem !important;
+	border: 1px solid #d9e2ed;
+	border-radius: 11px;
+	background: #f9fbfd;
+	color: #20364d;
+	font-size: 0.95rem;
+	line-height: 1.4;
+}
+
+[data-doctype="Web Form"] .web-form select {
+	appearance: auto;
+	padding-right: 2.2rem !important;
+}
+
+[data-doctype="Web Form"] .web-form .form-control:focus,
+[data-doctype="Web Form"] .web-form select:focus,
+[data-doctype="Web Form"] .web-form input[type="text"]:focus {
+	border-color: #4b83cb;
+	background: #fff;
+	box-shadow: 0 0 0 3px rgba(75, 131, 203, 0.13);
+}
+
+[data-doctype="Web Form"] .web-form .ql-toolbar.ql-snow {
+	padding: 0.55rem 0.7rem;
+	border: 1px solid #d9e2ed;
+	border-bottom: 0;
+	border-radius: 11px 11px 0 0;
+	background: #f7f9fc;
+}
+
+[data-doctype="Web Form"] .web-form .ql-container.ql-snow {
+	height: auto !important;
+	border: 1px solid #d9e2ed;
+	border-radius: 0 0 11px 11px;
+	background: #fff;
+}
+
+[data-doctype="Web Form"] .web-form .ql-editor {
+	box-sizing: border-box;
+	height: 178px !important;
+	min-height: 178px !important;
+	max-height: 280px;
+	overflow-y: auto;
+	padding: 0.85rem 0.95rem;
+	color: #20364d;
+	font-size: 0.95rem;
+	line-height: 1.6;
+}
+
+[data-doctype="Web Form"] .web-form .ql-editor.ql-blank::before {
+	left: 0.95rem;
+	color: #8998a9;
+	font-style: normal;
+}
+
+[data-doctype="Web Form"] .web-form .web-form-footer {
+	margin-top: 0.25rem;
+	padding-top: 1rem;
+}
+
+@media (max-width: 600px) {
+	[data-doctype="Web Form"] .web-form-header {
+		margin-bottom: 0.75rem;
+	}
+
+	[data-doctype="Web Form"] .web-form {
+		padding: 1.1rem;
+		border-radius: 16px;
+	}
+
+	[data-doctype="Web Form"] .web-form .ql-editor {
+		height: 150px !important;
+		min-height: 150px !important;
+	}
+}
