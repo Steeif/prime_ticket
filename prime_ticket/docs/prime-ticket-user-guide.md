@@ -1,6 +1,10 @@
 # Prime Ticket Customer Guide
 
-## Your support requests\n\nOpen **Submit a Ticket** from the Prime Ticket workspace to see your existing requests. Select a request row to review it, or choose **New** to open a fresh request.\n\n## Submit a support request
+## Your support requests
+
+Open **Submit a Ticket** from the Prime Ticket workspace to see your existing requests. Select a request row to review it, or choose **New** to open a fresh request.
+
+## Submit a support request
 
 1. Sign in to your organization's Frappe or ERPNext site.
 2. Open **Submit a Ticket** from the Prime Ticket workspace, or visit `/new-ticket`.
