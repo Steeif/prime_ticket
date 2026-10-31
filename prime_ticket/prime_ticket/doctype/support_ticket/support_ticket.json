@@ -16,6 +16,7 @@
   "raised_by",
   "email",
   "opened_at",
+  "response_due_at",
   "resolved_at",
   "resolution_section",
   "resolution",
@@ -92,6 +93,12 @@
    "fieldname": "opened_at",
    "fieldtype": "Datetime",
    "label": "Opened At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_due_at",
+   "fieldtype": "Datetime",
+   "label": "First Response Due At",
    "read_only": 1
   },
   {

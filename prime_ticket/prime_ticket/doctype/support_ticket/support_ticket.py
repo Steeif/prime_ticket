@@ -3,10 +3,23 @@
 
 import frappe
 from frappe.model.document import Document
-from frappe.utils import now_datetime
+from frappe.utils import add_to_date, now_datetime
 
 
 class SupportTicket(Document):
+    def _get_response_sla_hours(self):
+        settings = frappe.get_single("Prime Ticket Settings")
+        if not settings.enable_sla:
+            return None
+
+        for policy in settings.sla_policies or []:
+            if (policy.priority or "").strip().casefold() == (self.priority or "").strip().casefold():
+                return int(policy.response_time_hours)
+
+        if settings.default_sla_hours:
+            return int(settings.default_sla_hours)
+        return None
+
     def validate(self):
         # Stamp the creator / contact email (web form doesn't send these fields)
         if not self.raised_by:
@@ -16,6 +29,12 @@ class SupportTicket(Document):
 
         if not self.opened_at:
             self.opened_at = now_datetime()
+
+        # Calculate the first-response deadline once when SLA tracking is enabled.
+        if not self.response_due_at and self.opened_at:
+            response_hours = self._get_response_sla_hours()
+            if response_hours is not None:
+                self.response_due_at = add_to_date(self.opened_at, hours=response_hours)
 
         # Track resolution timestamp
         if self.status == "Resolved" and not self.resolved_at:

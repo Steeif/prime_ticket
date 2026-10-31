@@ -17,7 +17,7 @@
 | See tickets they have permission to access | Reply, change status, and add resolution notes |
 | Receive email when a ticket is resolved or needs a reply | Receive email when tickets are created or reopened |
 
-Tickets use the `TICK-00001` naming format. Each ticket records its category, priority, status, description, raiser, replies, and optional resolution notes.
+Tickets use the `TICK-00001` naming format. Each ticket records its category, priority, status, description, raiser, replies, and optional resolution notes. With SLA tracking enabled, v2 calculates a read-only first-response deadline for new tickets from the matching priority policy or the default response hours.
 
 ## How it works
 
@@ -81,7 +81,7 @@ erDiagram
     }
 ```
 
-The settings, SLA, workflow status, escalation, reply, and category-assignment rows are child tables. They are edited through their parent forms rather than opened as standalone workspace items.
+The settings, SLA, workflow status, escalation, reply, and category-assignment rows are child tables. They are edited through their parent forms rather than opened as standalone workspace items. In v2, SLA response policies and the default response hours calculate a deadline when a ticket is created; response completion tracking, resolution deadlines, breach alerts, and escalation remain future work.
 
 ## Install
 
