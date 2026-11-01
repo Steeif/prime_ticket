@@ -1,24 +1,24 @@
 # Prime Ticket SQL Reports
 
-The **Prime Ticket** workspace provides three standard SQL Query Reports. Open a report from the workspace shortcut or from **Reports** in the Desk. All reports are available to users with the **Ticket Operator** or **System Manager** role.
+The **Prime Ticket** workspace provides three standard SQL Query Reports. Open a report from the **Reports** card in the Prime Ticket workspace, or from the Reports list in Desk. All reports are available to users with the **Ticket Operator** or **System Manager** role.
 
 ## Ticket Volume by Category
 
 Groups created tickets by category, status, and priority. It includes the ticket count, average first-response time in hours for tickets that have a first reply, and the first and latest opened dates in each group.
 
-Filters: **From Date**, **To Date**, **Status**, and **Priority**. The date range includes both selected dates.
+Filters: **From Date**, **To Date**, **Status**, and **Priority**. Dates default to a broad range (2000–2099); Status and Priority default to **All**. Narrow the range as needed. Filters are prefilled and required so the SQL query always receives each parameter.
 
 ## First Response SLA by Priority
 
 Summarizes tickets that have a saved first-response deadline, grouped by priority. It shows total SLA-tracked tickets, responses made on time, missed deadlines, tickets still awaiting a response, on-time rate, and average first-response time in hours.
 
-Filters: **From Date**, **To Date**, and **Priority**. The on-time rate is calculated from tickets that have either met or missed the response deadline; tickets still within the deadline are excluded from the rate. Tickets without a saved response deadline are excluded.
+Filters: **From Date**, **To Date**, and **Priority**. Dates default to 2000–2099 and Priority defaults to **All**. The on-time rate is calculated from tickets that have either met or missed the response deadline; tickets still within the deadline are excluded from the rate. Tickets without a saved response deadline are excluded.
 
 ## Open Ticket Aging
 
 Lists active tickets from oldest to newest, including the age in hours, saved response and resolution deadlines, and first-response SLA state.
 
-Filters: **Status**, **Priority**, **Opened From**, and **Opened To**. Resolved and closed tickets are excluded.
+Filters: **Status**, **Priority**, **Opened From**, and **Opened To**. Status and Priority default to **All**, dates default to 2000–2099, and resolved/closed tickets remain excluded.
 
 ## Notes
 
