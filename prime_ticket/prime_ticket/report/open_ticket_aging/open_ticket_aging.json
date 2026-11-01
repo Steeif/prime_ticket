@@ -15,30 +15,34 @@
       "fieldname": "status",
       "label": "Status",
       "fieldtype": "Select",
-      "options": "Open\nWorking in Progress\nPending\nWaiting for Reply\nReopened",
-      "mandatory": 0
+      "options": "All\nOpen\nWorking in Progress\nPending\nWaiting for Reply\nReopened",
+      "mandatory": 1,
+      "default": "All"
     },
     {
       "doctype": "Report Filter",
       "fieldname": "priority",
       "label": "Priority",
       "fieldtype": "Select",
-      "options": "Urgent\nHigh\nMedium\nLow",
-      "mandatory": 0
+      "options": "All\nUrgent\nHigh\nMedium\nLow",
+      "mandatory": 1,
+      "default": "All"
     },
     {
       "doctype": "Report Filter",
       "fieldname": "from_date",
       "label": "Opened From",
       "fieldtype": "Date",
-      "mandatory": 0
+      "mandatory": 1,
+      "default": "2000-01-01"
     },
     {
       "doctype": "Report Filter",
       "fieldname": "to_date",
       "label": "Opened To",
       "fieldtype": "Date",
-      "mandatory": 0
+      "mandatory": 1,
+      "default": "2099-12-31"
     }
   ],
   "roles": [
@@ -51,5 +55,5 @@
       "role": "System Manager"
     }
   ],
-  "query": "SELECT\n    name AS \"Ticket:Link/Support Ticket:140\",\n    subject AS \"Subject:Data:230\",\n    category AS \"Category:Data:170\",\n    priority AS \"Priority:Data:90\",\n    status AS \"Status:Data:150\",\n    opened_at AS \"Opened At:Datetime:150\",\n    TIMESTAMPDIFF(HOUR, opened_at, NOW()) AS \"Age Hours:Int:90\",\n    CASE\n        WHEN response_due_at IS NULL THEN 'Not Tracked'\n        WHEN first_response_at IS NOT NULL AND first_response_at <= response_due_at THEN 'Met'\n        WHEN first_response_at IS NOT NULL OR response_due_at < NOW() THEN 'Missed'\n        ELSE 'On Track'\n    END AS \"First Response SLA:Data:140\",\n    response_due_at AS \"Response Due At:Datetime:150\",\n    resolution_due_at AS \"Resolution Due At:Datetime:150\"\nFROM `tabSupport Ticket`\nWHERE\n    status IN ('Open', 'Working in Progress', 'Pending', 'Waiting for Reply', 'Reopened')\n    AND (IFNULL(%(status)s, '') = '' OR status = %(status)s)\n    AND (IFNULL(%(priority)s, '') = '' OR priority = %(priority)s)\n    AND (IFNULL(%(from_date)s, '') = '' OR opened_at >= %(from_date)s)\n    AND (IFNULL(%(to_date)s, '') = '' OR opened_at < DATE_ADD(%(to_date)s, INTERVAL 1 DAY))\nORDER BY opened_at ASC"
+  "query": "SELECT\n    name AS \"Ticket:Link/Support Ticket:140\",\n    subject AS \"Subject:Data:230\",\n    category AS \"Category:Data:170\",\n    priority AS \"Priority:Data:90\",\n    status AS \"Status:Data:150\",\n    opened_at AS \"Opened At:Datetime:150\",\n    TIMESTAMPDIFF(HOUR, opened_at, NOW()) AS \"Age Hours:Int:90\",\n    CASE\n        WHEN response_due_at IS NULL THEN 'Not Tracked'\n        WHEN first_response_at IS NOT NULL AND first_response_at <= response_due_at THEN 'Met'\n        WHEN first_response_at IS NOT NULL OR response_due_at < NOW() THEN 'Missed'\n        ELSE 'On Track'\n    END AS \"First Response SLA:Data:140\",\n    response_due_at AS \"Response Due At:Datetime:150\",\n    resolution_due_at AS \"Resolution Due At:Datetime:150\"\nFROM `tabSupport Ticket`\nWHERE\n    status IN ('Open', 'Working in Progress', 'Pending', 'Waiting for Reply', 'Reopened')\n    AND (%(status)s = 'All' OR status = %(status)s)\n    AND (%(priority)s = 'All' OR priority = %(priority)s)\n    AND opened_at >= %(from_date)s\n    AND opened_at < DATE_ADD(%(to_date)s, INTERVAL 1 DAY)\nORDER BY opened_at ASC"
 }
