@@ -15,30 +15,34 @@
       "fieldname": "from_date",
       "label": "From Date",
       "fieldtype": "Date",
-      "mandatory": 0
+      "mandatory": 1,
+      "default": "2000-01-01"
     },
     {
       "doctype": "Report Filter",
       "fieldname": "to_date",
       "label": "To Date",
       "fieldtype": "Date",
-      "mandatory": 0
+      "mandatory": 1,
+      "default": "2099-12-31"
     },
     {
       "doctype": "Report Filter",
       "fieldname": "status",
       "label": "Status",
       "fieldtype": "Select",
-      "options": "Open\nWorking in Progress\nPending\nWaiting for Reply\nResolved\nReopened\nClosed",
-      "mandatory": 0
+      "options": "All\nOpen\nWorking in Progress\nPending\nWaiting for Reply\nResolved\nReopened\nClosed",
+      "mandatory": 1,
+      "default": "All"
     },
     {
       "doctype": "Report Filter",
       "fieldname": "priority",
       "label": "Priority",
       "fieldtype": "Select",
-      "options": "Urgent\nHigh\nMedium\nLow",
-      "mandatory": 0
+      "options": "All\nUrgent\nHigh\nMedium\nLow",
+      "mandatory": 1,
+      "default": "All"
     }
   ],
   "roles": [
@@ -51,5 +55,5 @@
       "role": "System Manager"
     }
   ],
-  "query": "SELECT\n    COALESCE(NULLIF(category, ''), 'Uncategorized') AS \"Category:Data:220\",\n    status AS \"Status:Data:160\",\n    priority AS \"Priority:Data:100\",\n    COUNT(*) AS \"Tickets:Int:90\",\n    ROUND(AVG(CASE WHEN first_response_at IS NOT NULL\n        THEN TIMESTAMPDIFF(SECOND, opened_at, first_response_at) / 3600.0\n        ELSE NULL END), 1) AS \"Avg First Response Hours:Float:160\",\n    MIN(DATE(opened_at)) AS \"First Opened:Date:120\",\n    MAX(DATE(opened_at)) AS \"Latest Opened:Date:120\"\nFROM `tabSupport Ticket`\nWHERE\n    (IFNULL(%(from_date)s, '') = '' OR opened_at >= %(from_date)s)\n    AND (IFNULL(%(to_date)s, '') = '' OR opened_at < DATE_ADD(%(to_date)s, INTERVAL 1 DAY))\n    AND (IFNULL(%(status)s, '') = '' OR status = %(status)s)\n    AND (IFNULL(%(priority)s, '') = '' OR priority = %(priority)s)\nGROUP BY\n    COALESCE(NULLIF(category, ''), 'Uncategorized'), status, priority\nORDER BY Tickets DESC, Category, Status"
+  "query": "SELECT\n    COALESCE(NULLIF(category, ''), 'Uncategorized') AS \"Category:Data:220\",\n    status AS \"Status:Data:160\",\n    priority AS \"Priority:Data:100\",\n    COUNT(*) AS \"Tickets:Int:90\",\n    ROUND(AVG(CASE WHEN first_response_at IS NOT NULL\n        THEN TIMESTAMPDIFF(SECOND, opened_at, first_response_at) / 3600.0\n        ELSE NULL END), 1) AS \"Avg First Response Hours:Float:160\",\n    MIN(DATE(opened_at)) AS \"First Opened:Date:120\",\n    MAX(DATE(opened_at)) AS \"Latest Opened:Date:120\"\nFROM `tabSupport Ticket`\nWHERE\n    opened_at >= %(from_date)s\n    AND opened_at < DATE_ADD(%(to_date)s, INTERVAL 1 DAY)\n    AND (%(status)s = 'All' OR status = %(status)s)\n    AND (%(priority)s = 'All' OR priority = %(priority)s)\nGROUP BY\n    COALESCE(NULLIF(category, ''), 'Uncategorized'), status, priority\nORDER BY Tickets DESC, Category, Status"
 }
