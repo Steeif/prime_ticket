@@ -23,7 +23,7 @@ The customer page presents a branded ticket form and a matching, responsive requ
 
 The Prime Ticket workspace includes **Ticket Analytics** for date-filtered ticket volume, status and category mix, response SLA performance, and the oldest open tickets. The dashboard preview below uses illustrative sample data only.
 
-![Ticket Analytics dashboard preview with sample data](prime_ticket/docs/images/ticket-analytics-preview.svg)
+![Ticket Analytics dashboard preview](prime_ticket/docs/images/ticket-analytics-preview.svg)
 
 The workspace also includes three SQL Query Reports: **Ticket Volume by Category**, **First Response SLA by Priority**, and **Open Ticket Aging**. See the [Prime Ticket Analytics Guide](prime_ticket/docs/prime-ticket-analytics.md) and [SQL Reports Guide](prime_ticket/docs/prime-ticket-sql-reports.md) for metric definitions, filters, and access details.
 
