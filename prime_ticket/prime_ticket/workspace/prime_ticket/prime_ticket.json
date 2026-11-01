@@ -1,6 +1,6 @@
 {
   "charts": [],
-  "content": "[{\"id\":\"hdrTickets\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Support Tickets</b></span>\",\"col\":12}},{\"id\":\"scNewTicket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Ticket\",\"col\":3}},{\"id\":\"scSubmitTicket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Submit a Ticket\",\"col\":3}},{\"id\":\"scAllTickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Tickets\",\"col\":3}},{\"id\":\"scOpenTickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Tickets\",\"col\":3}},{\"id\":\"scWaitingReply\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Waiting for Reply\",\"col\":3}},{\"id\":\"scReopened\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Reopened Tickets\",\"col\":3}},{\"id\":\"scSettingsGuide\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Settings Guide\",\"col\":3}},{\"id\":\"scTicketAnalytics\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Ticket Analytics\",\"col\":3}},{\"id\":\"scTicketVolumeCategory\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Ticket Volume by Category\",\"col\":3}},{\"id\":\"scFirstResponseSLA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"First Response SLA by Priority\",\"col\":3}},{\"id\":\"scOpenTicketAging\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Ticket Aging\",\"col\":3}},{\"id\":\"spacerTickets\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"cardTickets\",\"type\":\"card\",\"data\":{\"card_name\":\"Ticket Management\",\"col\":6}},{\"id\":\"cardConfiguration\",\"type\":\"card\",\"data\":{\"card_name\":\"Configuration\",\"col\":6}}]",
+  "content": "[{\"id\":\"hdrTickets\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Support Tickets</b></span>\",\"col\":12}},{\"id\":\"scNewTicket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Ticket\",\"col\":3}},{\"id\":\"scSubmitTicket\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Submit a Ticket\",\"col\":3}},{\"id\":\"scAllTickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Tickets\",\"col\":3}},{\"id\":\"scOpenTickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Open Tickets\",\"col\":3}},{\"id\":\"scWaitingReply\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Waiting for Reply\",\"col\":3}},{\"id\":\"scReopened\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Reopened Tickets\",\"col\":3}},{\"id\":\"scSettingsGuide\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Settings Guide\",\"col\":3}},{\"id\":\"scTicketAnalytics\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Ticket Analytics\",\"col\":3}},{\"id\":\"spacerTickets\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"cardTickets\",\"type\":\"card\",\"data\":{\"card_name\":\"Ticket Management\",\"col\":4}},{\"id\":\"cardConfiguration\",\"type\":\"card\",\"data\":{\"card_name\":\"Configuration\",\"col\":4}},{\"id\":\"cardReports\",\"type\":\"card\",\"data\":{\"card_name\":\"Reports\",\"col\":4}}]",
   "creation": "2026-10-03 00:00:00.000000",
   "docstatus": 0,
   "doctype": "Workspace",
@@ -69,6 +69,47 @@
       "link_type": "DocType",
       "onboard": 1,
       "type": "Link"
+    },
+    {
+      "hidden": 0,
+      "is_query_report": 0,
+      "label": "Reports",
+      "link_count": 3,
+      "onboard": 0,
+      "type": "Card Break"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Ticket Volume by Category",
+      "link_count": 0,
+      "link_to": "Ticket Volume by Category",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "First Response SLA by Priority",
+      "link_count": 0,
+      "link_to": "First Response SLA by Priority",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
+    },
+    {
+      "dependencies": "",
+      "hidden": 0,
+      "is_query_report": 1,
+      "label": "Open Ticket Aging",
+      "link_count": 0,
+      "link_to": "Open Ticket Aging",
+      "link_type": "Report",
+      "onboard": 0,
+      "type": "Link"
     }
   ],
   "module": "Prime Ticket",
@@ -136,24 +177,6 @@
       "label": "Ticket Analytics",
       "type": "URL",
       "url": "/app/prime-ticket-analytics"
-    },
-    {
-      "color": "Blue",
-      "label": "Ticket Volume by Category",
-      "type": "URL",
-      "url": "/app/query-report/Ticket%20Volume%20by%20Category"
-    },
-    {
-      "color": "Blue",
-      "label": "First Response SLA by Priority",
-      "type": "URL",
-      "url": "/app/query-report/First%20Response%20SLA%20by%20Priority"
-    },
-    {
-      "color": "Blue",
-      "label": "Open Ticket Aging",
-      "type": "URL",
-      "url": "/app/query-report/Open%20Ticket%20Aging"
     }
   ],
   "title": "Prime Ticket",
