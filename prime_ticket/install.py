@@ -1,4 +1,5 @@
 import json
+from pathlib import Path
 
 import frappe
 
@@ -65,12 +66,49 @@ def after_install():
 
 
 def after_migrate():
-    """Runs on every migrate — restores missing roles, categories, and notifications."""
+    """Restore app-managed reports and workspace after every site migration."""
     create_roles()
     create_default_categories()
     create_notifications()
+    sync_reports()
     sync_workspace()
     frappe.db.commit()
+    frappe.clear_cache(doctype="Report")
+    frappe.clear_cache(doctype="Workspace")
+
+
+def sync_reports():
+    """Apply the app's standard Query Report definitions to the site database."""
+    reports_path = Path(frappe.get_app_path("prime_ticket", "prime_ticket", "report"))
+
+    for report_file in reports_path.glob("*/*.json"):
+        with report_file.open(encoding="utf-8") as source_file:
+            report_data = json.load(source_file)
+
+        if report_data.get("doctype") != "Report" or report_data.get("report_type") != "Query Report":
+            continue
+
+        report_name = report_data["name"]
+        if frappe.db.exists("Report", report_name):
+            report = frappe.get_doc("Report", report_name)
+            for field in (
+                "report_name",
+                "ref_doctype",
+                "report_type",
+                "query",
+                "filters",
+                "roles",
+                "add_total_row",
+                "disabled",
+                "prepared_report",
+                "module",
+                "is_standard",
+            ):
+                if field in report_data:
+                    report.set(field, report_data[field])
+            report.save(ignore_permissions=True)
+        else:
+            frappe.get_doc(report_data).insert(ignore_permissions=True)
 
 
 def sync_workspace():

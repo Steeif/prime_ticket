@@ -22,6 +22,8 @@ Filters: **Status**, **Priority**, **Opened From**, and **Opened To**. Status an
 
 ## Notes
 
+- After updating the app, run `bench --site your-site.example migrate`. Migration re-applies the app-managed report queries and default filters, refreshes the Reports card in the Prime Ticket workspace, and clears report/workspace caches. Reload Desk after migration.
+- If a report request still sends empty filters (`{}`), the site has not loaded the updated Report definition; confirm the app checkout is on the current `main` and run migration again.
 - Query report dates filter on the ticket's **Opened At** timestamp.
 - SLA results depend on the deadlines and response timestamps saved on each Support Ticket. Existing tickets without those values may be excluded from SLA metrics.
 - The reports are read-only and do not update ticket records.
