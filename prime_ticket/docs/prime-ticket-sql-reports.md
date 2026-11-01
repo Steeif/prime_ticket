@@ -4,7 +4,7 @@ The **Prime Ticket** workspace provides three standard SQL Query Reports. Open a
 
 ## Ticket Volume by Category
 
-Groups created tickets by category, status, and priority. It includes the ticket count, average first-response time in hours for tickets that have a first reply, and the first and latest opened dates in each group.
+Groups created tickets by category, status, and priority, sorted by ticket count from highest to lowest. It includes the ticket count, average first-response time in hours for tickets that have a first reply, and the first and latest opened dates in each group.
 
 Filters: **From Date**, **To Date**, **Status**, and **Priority**. Dates default to a broad range (2000–2099); Status and Priority default to **All**. Narrow the range as needed. Filters are prefilled and required so the SQL query always receives each parameter.
 
