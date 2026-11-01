@@ -1,5 +1,7 @@
 # Prime Ticket Analytics Guide
 
+The analytics page shows the official Frappe wordmark in its hero to identify the framework. The wordmark is used as supplied and does not indicate an official Frappe endorsement.
+
 Open **Ticket Analytics** from the Prime Ticket workspace. The page is available to **Ticket Operators** and **System Managers**. The dashboard preview in the repository README uses illustrative sample data and contains no site-specific information. For downloadable tabular analysis, see the [SQL Reports Guide](prime-ticket-sql-reports.md).
 
 ## Filter the reports
