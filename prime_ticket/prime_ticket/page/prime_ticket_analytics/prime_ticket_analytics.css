@@ -22,7 +22,7 @@
 	box-shadow: 0 18px 44px rgba(20,42,68,.16);
 }
 .pta-eyebrow { display:flex; align-items:center; min-height:2.2rem; }
-.pta-frappe-logo { display:block; width:clamp(10rem,13vw,15rem); height:auto; object-fit:contain; }
+.pta-frappe-logo { display:block; width:clamp(7rem,10vw,9rem); height:auto; object-fit:contain; }
 .pta-pulse { width:8px; height:8px; border-radius:50%; background:#67e4b4; box-shadow:0 0 0 5px rgba(103,228,180,.13); }
 .pta-hero h1 { margin:.85rem 0 .45rem; color:#fff; font-size:clamp(2rem,4vw,3.15rem); font-weight:780; letter-spacing:-.045em; }
 .pta-hero p { max-width:600px; margin:0; color:#e4edf8; font-size:1rem; line-height:1.6; }
