@@ -6,52 +6,49 @@
  <linearGradient id="blue" x2="0" y2="1"><stop stop-color="#61a8ef"/><stop offset="1" stop-color="#2874c2"/></linearGradient>
  <linearGradient id="green" x2="0" y2="1"><stop stop-color="#63d2ae"/><stop offset="1" stop-color="#1da87c"/></linearGradient>
  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1d3554" flood-opacity=".08"/></filter>
- <style>
-  text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#16324b}.muted{fill:#7589a1}.eyebrow{font-size:17px;font-weight:700;letter-spacing:2px}.big{font-size:42px;font-weight:750}.metric{font-size:38px;font-weight:750}.card{fill:#fff;stroke:#e0e8f1;stroke-width:1}.label{font-size:17px;font-weight:750;letter-spacing:.5px}.sub{font-size:16px}
- </style>
 </defs>
 <rect width="1440" height="1120" fill="#f2f6fb"/>
 <rect width="1440" height="68" fill="#fff"/>
 <circle cx="68" cy="34" r="18" fill="#102b43"/><path d="M58 38l9-15 4 9 8-4-10 16-2-8z" fill="#55c5a3"/>
-<text x="102" y="42" font-size="21" font-weight="700">Prime Ticket</text><text x="263" y="42" font-size="17" class="muted">/ Operations</text>
+<text x="102" y="42" font-size="21" font-weight="700">Prime Ticket</text><text x="263" y="42" font-size="17" fill="#5c7189"="fill">/ Operations</text>
 <rect x="1175" y="19" width="180" height="31" rx="15" fill="#e9f2ff"/><circle cx="1193" cy="34" r="5" fill="#25ad80"/><text x="1207" y="40" font-size="13" font-weight="700" fill="#376da7">SAMPLE DATA</text>
 <text x="70" y="116" font-size="23" font-weight="700">Ticket Analytics</text>
 <rect x="70" y="142" width="1300" height="247" rx="26" fill="url(#hero)" filter="url(#shadow)"/>
-<circle cx="112" cy="188" r="7" fill="#52d1a7"/><text x="132" y="194" class="eyebrow" fill="#b9d8ff">PRIME TICKET · OPERATIONS INTELLIGENCE</text>
-<text x="110" y="247" class="big" fill="#fff">Ticket Analytics</text><text x="112" y="281" font-size="19" fill="#d5e4f6">Understand demand, response performance, and the work that needs attention.</text>
+<circle cx="112" cy="188" r="7" fill="#52d1a7"/><text x="132" y="194" fill="#b9d8ff" font-size="17"="font-size" font-weight="700"="font-weight" letter-spacing="2"="letter-spacing" fill="#b9d8ff"="fill">PRIME TICKET · OPERATIONS INTELLIGENCE</text>
+<text x="110" y="247" fill="#fff" font-size="42"="font-size" font-weight="750"="font-weight" fill="#ffffff"="fill">Ticket Analytics</text><text x="112" y="281" font-size="19" fill="#d5e4f6">Understand demand, response performance, and the work that needs attention.</text>
 <text x="112" y="326" font-size="15" font-weight="700" fill="#d5e4f6">FROM</text><text x="430" y="326" font-size="15" font-weight="700" fill="#d5e4f6">TO</text>
 <rect x="112" y="338" width="284" height="38" rx="10" fill="#fff"/><text x="129" y="364" font-size="16">Oct 1, 2026</text>
 <rect x="430" y="338" width="284" height="38" rx="10" fill="#fff"/><text x="447" y="364" font-size="16">Oct 31, 2026</text>
 <rect x="736" y="338" width="119" height="38" rx="10" fill="#0b1927" stroke="#8fb9e8"/><text x="757" y="363" font-size="15" font-weight="700" fill="#fff">↻  Refresh</text>
-<text x="74" y="424" class="muted" font-size="16">October 1–31, 2026</text><text x="1240" y="424" class="muted" font-size="16">Illustrative preview</text>
+<text x="74" y="424" font-size="16" fill="#5c7189"="fill">October 1–31, 2026</text><text x="1240" y="424" font-size="16" fill="#5c7189"="fill">Illustrative preview</text>
 <!-- KPI tiles -->
 <g filter="url(#shadow)">
- <rect x="70" y="448" width="310" height="146" rx="20" fill="#2c72b8"/><rect x="398" y="448" width="310" height="146" rx="20" class="card"/><rect x="726" y="448" width="310" height="146" rx="20" class="card"/><rect x="1054" y="448" width="316" height="146" rx="20" class="card"/>
+ <rect x="70" y="448" width="310" height="146" rx="20" fill="#2c72b8"/><rect x="398" y="448" width="310" height="146" rx="20" fill="#ffffff" stroke="#dce5ef" stroke-width="1"/><rect x="726" y="448" width="310" height="146" rx="20" fill="#ffffff" stroke="#dce5ef" stroke-width="1"/><rect x="1054" y="448" width="316" height="146" rx="20" fill="#ffffff" stroke="#dce5ef" stroke-width="1"/>
 </g>
-<text x="96" y="484" class="label" fill="#d7eaff">TICKETS RECEIVED</text><text x="96" y="535" class="metric" fill="#fff">42</text><text x="96" y="565" class="sub" fill="#e2f0ff">in selected period</text>
-<text x="424" y="484" class="label muted">OPEN BACKLOG</text><text x="424" y="535" class="metric">18</text><text x="424" y="565" class="sub muted">2 response deadlines overdue</text>
-<text x="752" y="484" class="label muted">FIRST RESPONSE SLA</text><text x="752" y="535" class="metric">92%</text><text x="752" y="565" class="sub muted">on-time responses</text>
-<text x="1080" y="484" class="label muted">AVERAGE FIRST RESPONSE</text><text x="1080" y="535" class="metric">2.6h</text><text x="1080" y="565" class="sub muted">for tickets with a first reply</text>
+<text x="96" y="484" fill="#d7eaff" font-size="17"="font-size" font-weight="750"="font-weight" letter-spacing=".5"="letter-spacing" fill="#16324b"="fill">TICKETS RECEIVED</text><text x="96" y="535" fill="#fff" font-size="38"="font-size" font-weight="750"="font-weight" fill="#16324b"="fill">42</text><text x="96" y="565" fill="#e2f0ff" font-size="16"="font-size" fill="#5c7189"="fill">in selected period</text>
+<text x="424" y="484" font-size="17"="font-size" font-weight="750"="font-weight" letter-spacing=".5"="letter-spacing" fill="#16324b"="fill" fill="#5c7189"="fill">OPEN BACKLOG</text><text x="424" y="535" font-size="38"="font-size" font-weight="750"="font-weight" fill="#16324b"="fill">18</text><text x="424" y="565" font-size="16"="font-size" fill="#5c7189"="fill">2 response deadlines overdue</text>
+<text x="752" y="484" font-size="17"="font-size" font-weight="750"="font-weight" letter-spacing=".5"="letter-spacing" fill="#16324b"="fill" fill="#5c7189"="fill">FIRST RESPONSE SLA</text><text x="752" y="535" font-size="38"="font-size" font-weight="750"="font-weight" fill="#16324b"="fill">92%</text><text x="752" y="565" font-size="16"="font-size" fill="#5c7189"="fill">on-time responses</text>
+<text x="1080" y="484" font-size="17"="font-size" font-weight="750"="font-weight" letter-spacing=".5"="letter-spacing" fill="#16324b"="fill" fill="#5c7189"="fill">AVERAGE FIRST RESPONSE</text><text x="1080" y="535" font-size="38"="font-size" font-weight="750"="font-weight" fill="#16324b"="fill">2.6h</text><text x="1080" y="565" font-size="16"="font-size" fill="#5c7189"="fill">for tickets with a first reply</text>
 <!-- Volume chart -->
-<g filter="url(#shadow)"><rect x="70" y="618" width="630" height="230" rx="20" class="card"/><rect x="720" y="618" width="650" height="230" rx="20" class="card"/></g>
-<text x="98" y="656" class="label muted">VOLUME</text><text x="98" y="686" font-size="20" font-weight="700">Incoming tickets</text><text x="605" y="684" class="muted">By week</text>
+<g filter="url(#shadow)"><rect x="70" y="618" width="630" height="230" rx="20" fill="#ffffff" stroke="#dce5ef" stroke-width="1"/><rect x="720" y="618" width="650" height="230" rx="20" fill="#ffffff" stroke="#dce5ef" stroke-width="1"/></g>
+<text x="98" y="656" font-size="17"="font-size" font-weight="750"="font-weight" letter-spacing=".5"="letter-spacing" fill="#16324b"="fill" fill="#5c7189"="fill">VOLUME</text><text x="98" y="686" font-size="20" font-weight="700">Incoming tickets</text><text x="605" y="684" fill="#5c7189"="fill">By week</text>
 <line x1="115" y1="795" x2="660" y2="795" stroke="#e5ebf2"/>
-<rect x="148" y="742" width="56" height="53" rx="8" fill="url(#blue)"/><text x="166" y="730" font-size="14" font-weight="700">8</text><text x="151" y="821" class="muted" font-size="14">Week 1</text>
-<rect x="274" y="705" width="56" height="90" rx="8" fill="url(#blue)"/><text x="292" y="693" font-size="14" font-weight="700">14</text><text x="277" y="821" class="muted" font-size="14">Week 2</text>
-<rect x="400" y="725" width="56" height="70" rx="8" fill="url(#blue)"/><text x="418" y="713" font-size="14" font-weight="700">11</text><text x="403" y="821" class="muted" font-size="14">Week 3</text>
-<rect x="526" y="738" width="56" height="57" rx="8" fill="url(#blue)"/><text x="544" y="726" font-size="14" font-weight="700">9</text><text x="529" y="821" class="muted" font-size="14">Week 4</text>
+<rect x="148" y="742" width="56" height="53" rx="8" fill="url(#blue)"/><text x="166" y="730" font-size="14" font-weight="700">8</text><text x="151" y="821" font-size="14" fill="#5c7189"="fill">Week 1</text>
+<rect x="274" y="705" width="56" height="90" rx="8" fill="url(#blue)"/><text x="292" y="693" font-size="14" font-weight="700">14</text><text x="277" y="821" font-size="14" fill="#5c7189"="fill">Week 2</text>
+<rect x="400" y="725" width="56" height="70" rx="8" fill="url(#blue)"/><text x="418" y="713" font-size="14" font-weight="700">11</text><text x="403" y="821" font-size="14" fill="#5c7189"="fill">Week 3</text>
+<rect x="526" y="738" width="56" height="57" rx="8" fill="url(#blue)"/><text x="544" y="726" font-size="14" font-weight="700">9</text><text x="529" y="821" font-size="14" fill="#5c7189"="fill">Week 4</text>
 <!-- status mix -->
-<text x="750" y="656" class="label muted">TICKET HEALTH</text><text x="750" y="686" font-size="20" font-weight="700">Status mix</text><text x="1244" y="684" class="muted">42 created</text>
+<text x="750" y="656" font-size="17"="font-size" font-weight="750"="font-weight" letter-spacing=".5"="letter-spacing" fill="#16324b"="fill" fill="#5c7189"="fill">TICKET HEALTH</text><text x="750" y="686" font-size="20" font-weight="700">Status mix</text><text x="1244" y="684" fill="#5c7189"="fill">42 created</text>
 <text x="752" y="730" font-size="16">Open</text><text x="1322" y="730" font-size="16" font-weight="700">18</text><rect x="752" y="741" width="565" height="10" rx="5" fill="#eaf0f6"/><rect x="752" y="741" width="390" height="10" rx="5" fill="url(#blue)"/>
 <text x="752" y="782" font-size="16">Working in Progress</text><text x="1322" y="782" font-size="16" font-weight="700">13</text><rect x="752" y="793" width="565" height="10" rx="5" fill="#eaf0f6"/><rect x="752" y="793" width="281" height="10" rx="5" fill="url(#green)"/>
 <text x="752" y="831" font-size="16">Resolved</text><text x="1322" y="831" font-size="16" font-weight="700">11</text>
 <!-- lower panels -->
-<g filter="url(#shadow)"><rect x="70" y="872" width="630" height="205" rx="20" class="card"/><rect x="720" y="872" width="650" height="205" rx="20" class="card"/></g>
-<text x="98" y="910" class="label muted">WHERE DEMAND COMES FROM</text><text x="98" y="940" font-size="20" font-weight="700">Top categories</text>
+<g filter="url(#shadow)"><rect x="70" y="872" width="630" height="205" rx="20" fill="#ffffff" stroke="#dce5ef" stroke-width="1"/><rect x="720" y="872" width="650" height="205" rx="20" fill="#ffffff" stroke="#dce5ef" stroke-width="1"/></g>
+<text x="98" y="910" font-size="17"="font-size" font-weight="750"="font-weight" letter-spacing=".5"="letter-spacing" fill="#16324b"="fill" fill="#5c7189"="fill">WHERE DEMAND COMES FROM</text><text x="98" y="940" font-size="20" font-weight="700">Top categories</text>
 <text x="100" y="981" font-size="16">Technical Issues</text><text x="648" y="981" font-weight="700">16</text><rect x="100" y="992" width="540" height="9" rx="4" fill="#eaf0f6"/><rect x="100" y="992" width="400" height="9" rx="4" fill="url(#blue)"/>
 <text x="100" y="1035" font-size="16">General Inquiries</text><text x="648" y="1035" font-weight="700">11</text><rect x="100" y="1046" width="540" height="9" rx="4" fill="#eaf0f6"/><rect x="100" y="1046" width="275" height="9" rx="4" fill="url(#green)"/>
-<text x="750" y="910" class="label muted">FIRST RESPONSE</text><text x="750" y="940" font-size="20" font-weight="700">SLA by priority</text>
-<text x="752" y="979" font-size="14" font-weight="700" class="muted">PRIORITY</text><text x="950" y="979" font-size="14" font-weight="700" class="muted">TICKETS</text><text x="1080" y="979" font-size="14" font-weight="700" class="muted">MET</text><text x="1192" y="979" font-size="14" font-weight="700" class="muted">MISSED</text><text x="1310" y="979" font-size="14" font-weight="700" class="muted">RATE</text>
+<text x="750" y="910" font-size="17"="font-size" font-weight="750"="font-weight" letter-spacing=".5"="letter-spacing" fill="#16324b"="fill" fill="#5c7189"="fill">FIRST RESPONSE</text><text x="750" y="940" font-size="20" font-weight="700">SLA by priority</text>
+<text x="752" y="979" font-size="14" font-weight="700" fill="#5c7189"="fill">PRIORITY</text><text x="950" y="979" font-size="14" font-weight="700" fill="#5c7189"="fill">TICKETS</text><text x="1080" y="979" font-size="14" font-weight="700" fill="#5c7189"="fill">MET</text><text x="1192" y="979" font-size="14" font-weight="700" fill="#5c7189"="fill">MISSED</text><text x="1310" y="979" font-size="14" font-weight="700" fill="#5c7189"="fill">RATE</text>
 <line x1="750" y1="990" x2="1335" y2="990" stroke="#e3eaf2"/>
 <text x="752" y="1022" font-size="16" font-weight="700">High</text><text x="950" y="1022">8</text><text x="1080" y="1022">7</text><text x="1192" y="1022">1</text><text x="1310" y="1022" font-weight="700">88%</text>
 <text x="752" y="1054" font-size="16" font-weight="700">Medium</text><text x="950" y="1054">20</text><text x="1080" y="1054">18</text><text x="1192" y="1054">2</text><text x="1310" y="1054" font-weight="700">90%</text>
